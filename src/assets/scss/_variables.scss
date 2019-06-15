@@ -1,0 +1,85 @@
+:root {
+    /** primary **/
+    --ion-color-primary: #303F9F;
+    --ion-color-primary-rgb: 48, 63, 159;
+    --ion-color-primary-shade: #2a378d;
+    --ion-color-primary-tint: #C5CAE9;
+    --ion-color-primary-intermediate: #3F51B5;
+
+    /** secondary **/
+    --ion-color-secondary: #00BCD4;
+    --ion-color-secondary-rgb: 0, 188, 212;
+    --ion-color-secondary-shade: #03aac0;
+    --ion-color-secondary-tint: #B2EBF2;
+    --ion-color-secondary-intermediate: rgb(23, 180, 201);
+
+    /** danger **/
+    --ion-color-danger: #E91E63;
+    --ion-color-danger-tint: #F8BBD0;
+
+    --ion-toolbar-background-color: rgba(255, 255, 255, 1);
+    --ion-toolbar-text-color: rgba(0, 0, 0, 0.5);
+
+    --page-background-color: rgba(255, 255, 255, 1);
+    --box-shadow-varient-1: 0px 0px 100px 0px rgba(170, 170, 170, 0.25);
+    --box-shadow-varient-1-hover: 0px 0px 100px 0px rgba(170, 170, 170, 0.45);
+    --box-shadow-varient-2: 0px 0px 10px 0px rgba(170, 170, 170, 0.15);
+    --box-shadow-varient-2-hover: 0px 0px 10px 0px rgba(170, 170, 170, 0.25);
+    --box-shadow-varient-3: 0px 0px 65px 0px rgba(200, 200, 200, 0.5);
+    --box-shadow-varient-3-hover: 0px 0px 65px 0px rgba(150, 150, 150, 0.5);
+
+    --bg-color-grey: #e8e8e8;
+    --text-color: #555555;
+    --text-muted-color: #9a9a9a;
+    --divider-line-color: rgba(0, 0, 0, 0.05);
+    --skel-base-color: rgb(235, 235, 235);
+    --skel-shine-color: #f6f6f6;
+    --card-background: #fff;
+    --card-padding: 12px;
+    --card-margin: 6px;
+    --card-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    --card-shadow-varient-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --card-shadow-varient-2: 0 0 2rem rgba(0, 0, 0, 0.06);
+    --item-border-color: rgba(0, 0, 0, 0.05);
+    --header-bottom-line: var(--ion-color-light);
+    --transparent-header-bg: var(--ion-toolbar-background-color);
+    --ion-toggle-bg: var(--ion-color-primary);
+    --ion-toggle-handle-bg: #fff;
+    --badge-text-color: #fff;
+    --static-bg-color: #f8f8f8;
+    --desktop-bg-color: #308bd6;
+    --tab-text-color: #222;
+    --mailbox-title-new-color: #676767;
+    --mailbox-title-color: #343434;
+    --account-bg: var(--ion-color-primary-shade);
+    --logout-link-color: var(--ion-color-danger);
+    --profile-dp-bg: #ccc;
+}
+
+.dark-mode {
+    --ion-background-color: #2e2e2e;
+    --ion-color-primary: var(--ion-color-secondary-intermediate);
+    --card-background: #353535;
+    --text-color: #aaa;
+    --header-title-color: #f4f5f8;
+    --static-bg-color: #222;
+    --skel-base-color: rgb(53, 53, 53);
+    --skel-shine-color: rgb(60, 60, 60);
+    --card-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+    --card-shadow-varient-2: 0 0 2rem rgba(0, 0, 0, 0.6);
+    --item-border-color: rgba(200, 200, 200, 0.05);
+    --header-bottom-line: var(--ion-background-color);
+    --ion-color-dark-tint: #5b5b5b;
+    --ion-toggle-bg: var(--ion-color-secondary-intermediate);
+    --ion-toggle-handle-bg: #ddd;
+    --transparent-header-bg: #2e2e2e;
+    --badge-text-color: #333;
+    --desktop-bg-color: #384a59;
+    --ion-color-primary-intermediate: #2e2e2e;
+    --tab-text-color: #aaa;
+    --mailbox-title-new-color: #cbcbcb;
+    --mailbox-title-color: #999;
+    --account-bg: #384a59;
+    --logout-link-color: #fff;
+    --profile-dp-bg: var(--ion-color-dark);
+}

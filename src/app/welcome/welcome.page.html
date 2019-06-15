@@ -1,0 +1,77 @@
+<div class="page__welcome h-100">
+  <div class="bg"></div>
+  <div class="content">
+    <ion-slides class="onboarding slides" pager="true" [options]="slideOpts">
+      <ion-slide class="screen">
+        <div class="intro">
+          <div class="image"></div>
+          <div class="text">
+            <h2>Welcome to DoctorsApp</h2>
+            <p>
+              A trusted partner in providing a mobile platform for Information
+              sharing and Healthcare services for doctors.
+            </p>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide class="screen">
+        <div class="intro">
+          <div class="image"></div>
+          <div class="text">
+            <h2>Telemedicine</h2>
+            <p>Consulting with your patients will just be a matter of time.</p>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide class="screen">
+        <div class="intro">
+          <div class="image"></div>
+          <div class="text">
+            <h2>Virtual Dermatologist</h2>
+            <p>
+              A unique blend of Genomics and Artificial Intelligence for a
+              cancer-free you!
+            </p>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide class="screen">
+        <div class="intro">
+          <div class="image"></div>
+          <div class="text">
+            <h2>Healthcare Tourism</h2>
+            <p>Discover the best in class affordable healthcare.</p>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+    <div class="welcome-text">
+      <div class="intro">
+        <div>
+          <div class="social-login">
+            <!-- <button class="btn btn-fill fb">Continue with Facebook</button> -->
+            <button
+              class="btn btn-fill"
+              routerLink="/register"
+              routerDirection="root"
+            >
+              Register Now
+            </button>
+          </div>
+          <div class="divider">
+            <small>Already registered? </small>
+          </div>
+          <div class="login">
+            <button
+              class="btn btn-outline"
+              routerLink="/login"
+              routerDirection="root"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

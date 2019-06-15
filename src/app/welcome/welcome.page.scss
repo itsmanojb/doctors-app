@@ -1,0 +1,147 @@
+@import '../../assets/scss/mixins';
+
+
+.page__welcome {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg {
+    width: 5170px;
+    // background: rgba(255, 255, 255, 0.9) url('../../assets/images/people2.png') repeat-x;
+    // background-blend-mode: color;
+    background: url('../../assets/images/people.png') repeat-x;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-animation: bg-slide 60s linear infinite;
+    animation: bg-slide 180s linear infinite;
+    filter: grayscale(100%);
+    background-position: center;
+    background-size: contain;
+}
+
+.content {
+    position: relative;
+}
+
+.slides.onboarding {
+    height: 65vh;
+    font-family: var(--font);
+
+    ion-slide {
+        .intro {
+            h2 {
+                font-weight: 500;
+                color: var(--ion-color-primary);
+                padding: 0 20px;
+                font-size: 30px;
+            }
+
+            p {
+                color: #898989;
+                padding: 0 20px;
+                margin: 0 auto;
+                max-width: 90%;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.welcome-text {
+    .intro {
+        text-align: center;
+
+        p {
+            color: #898989;
+            padding: 0 20px;
+            margin: 0 auto;
+            max-width: 90%;
+            font-size: 12px;
+        }
+    }
+
+    .social-login,
+    .login {
+        padding: 1em 0;
+    }
+
+    .divider {
+        background: #eee;
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+        height: 1px;
+
+        small {
+            font-size: .75rem;
+            color: var(--text-color);
+            position: absolute;
+            left: 25%;
+            top: -6px;
+            background: #fff;
+            padding: 0 5px;
+            width: 50%;
+            text-align: center;
+            width: 50%;
+            left: 25%;
+        }
+    }
+
+    .btn {
+        @extend .form-button;
+        border: 2px solid;
+        width: 80%;
+        margin: .4em auto;
+        color: var(--ion-color-primary);
+        @include easeOut;
+
+        &.btn-outline {
+            background-color: #fff;
+            border-color: var(--ion-color-primary);
+            padding: 16px 0;
+        }
+
+        &.btn-fill {
+            color: #fff;
+            border-radius: 6px;
+            background: linear-gradient(to bottom, var(--ion-color-primary), var(--ion-color-primary-shade));
+
+            &:hover {
+                background: linear-gradient(to bottom, var(--ion-color-primary-shade), var(--ion-color-primary-shade));
+            }
+        }
+
+        &.fb {
+            background-color: #385998;
+            border-color: #385998;
+
+            &:hover {
+                background-color: darken(#385998, 5%);
+            }
+        }
+    }
+}
+
+
+@keyframes bg-slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@-webkit-keyframes bg-slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}

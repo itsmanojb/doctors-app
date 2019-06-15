@@ -1,0 +1,17 @@
+@mixin easeOut {
+    transition: all 0.3s ease-out;
+}
+
+.form-button {
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: var(--ion-font-family);
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 18px 0;
+    text-align: center;
+    cursor: pointer;
+    @include easeOut;
+}

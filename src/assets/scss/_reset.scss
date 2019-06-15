@@ -1,0 +1,278 @@
+:root {
+    --ion-font-family: 'Google Sans', sans-serif;
+    --ion-background-color: #fff;
+
+    .list-md:not(.list-inset):not(.list-md-lines-none) .item:last-child,
+    .list-ios:not(.list-inset):not(.list-ios-lines-none) .item:last-child {
+        --border-width: 0;
+        --inner-border-width: 0;
+    }
+
+    .list-md:not(.list-md-lines-none) .item:last-child {
+        --inner-border-width: 0 0 0 0;
+    }
+
+    .list-md .item-lines-inset,
+    .list-md-lines-inset .item,
+    .list-ios .item-lines-inset,
+    .list-ios-lines-inset .item,
+    .list-md .item-lines-full,
+    .list-md-lines-full .item,
+    .list-ios .item-lines-full,
+    .list-ios-lines-full .item {
+        --border-color: var(--item-border-color);
+    }
+
+    .header-ios ion-toolbar:last-child {
+        --border-width: 0;
+        --inner-border-width: 0;
+    }
+}
+
+ion-header.flat {
+
+    &.header-md::after {
+        content: none
+    }
+
+    &.header-ios,
+    &.header-md {
+
+        &:not(.bordered) {
+            border-bottom: none;
+        }
+
+    }
+
+    &.bordered {
+        border-bottom: 1px solid var(--header-bottom-line);
+    }
+
+}
+
+ion-toolbar {
+
+    &.colored {
+        --ion-toolbar-background: var(--ion-color-primary-intermediate);
+
+        &.dark {
+            --ion-toolbar-background: var(--ion-color-dark);
+        }
+    }
+
+    &.trans {
+        --ion-toolbar-background: var(--transparent-header-bg);
+    }
+
+    &.big {
+        --min-height: 52px
+    }
+}
+
+ion-content.bg-colored {
+    --ion-background-color: #fafafa;
+}
+
+ion-thumbnail.list-item-loader {
+    margin: 0 -8px 0 0;
+    height: 40px;
+    width: 40px;
+}
+
+ion-icon.toolbar-menu-icon {
+    font-size: 24px;
+}
+
+.title-ios,
+.title-md {
+    font-weight: 500;
+    // text-align: center;
+}
+
+.gsearch {
+    --background: rgba(0, 0, 0, 0.1);
+    --cancel-button-color: #fff;
+    --clear-button-color: #fff;
+    --color: rgba(255, 255, 255, 0.8);
+    --icon-color: rgba(255, 255, 255, 0.8);
+    --placeholder-color: #eee;
+    --placeholder-opacity: 0.6;
+    padding: 0 6px;
+    height: 36px;
+
+    .searchbar-input-container.sc-ion-searchbar-ios {
+        height: 32px;
+    }
+}
+
+ion-footer.flat {
+    &.footer-md::before {
+        content: none
+    }
+}
+
+ion-toggle {
+    --handle-background-checked: var(--ion-toggle-handle-bg);
+    --background-checked: var(--ion-toggle-bg);
+}
+
+
+.sc-ion-buttons-ios-s ion-button,
+.sc-ion-buttons-md-s ion-button {
+    font-size: 18px
+}
+
+.action-sheet-button.sc-ion-action-sheet-ios {
+    padding: 16px;
+    height: 50px;
+    font-size: 18px;
+}
+
+.action-sheet-button.sc-ion-action-sheet-md {
+    font-size: 16px;
+    height: 48px;
+}
+
+.alert-message.sc-ion-alert-md {
+    font-size: 15px;
+}
+
+
+// Material components style overwrite
+
+.mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(0%) !important;
+}
+
+.mat-select-panel {
+    border-radius: 5px;
+}
+
+.mat-tab-label:not(.mat-tab-label-active) .mat-tab-label-content {
+    .badge {
+        background: var(--ion-color-danger);
+        margin-left: 4px;
+        display: inline-block;
+        height: 8px;
+        border-radius: 8px;
+        width: 8px;
+        margin-top: -8px;
+    }
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    opacity: 0;
+}
+
+textarea.mat-input-element.cdk-textarea-autosize {
+    &.limited {
+        max-height: 150px;
+        min-height: 40px;
+
+        &.size-md {
+            max-height: 200px;
+            min-height: 100px;
+        }
+    }
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label mat-label {
+    padding: 0;
+    background: var(--ion-background-color)
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.mat-form-field-infix {
+    width: auto !important
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 0
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    border: 0;
+    padding: 6px 0
+}
+
+/* chip */
+.mat-chip-list-wrapper .mat-standard-chip {
+    margin: 2px !important;
+}
+
+.mat-standard-chip {
+    border-radius: 5px !important;
+
+    &.mat-standard-chip {
+        background-color: transparent;
+        color: var(--ion-color-primary);
+        border: 1px solid var(--ion-color-primary-tint);
+        padding: 5px 12px;
+
+        &:focus {
+            box-shadow: none;
+            color: #fff;
+            background-color: var(--ion-color-primary);
+            border-color: var(--ion-color-primary);
+        }
+    }
+
+}
+
+/* autocomplete */
+.mat-autocomplete-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mat-option.mat-active,
+.mat-option:hover:not(.mat-option-disabled),
+.mat-option:focus:not(.mat-option-disabled) {
+    background: var(--ion-color-primary-intermediate) !important;
+    color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* tabs */
+.mat-tab-group {
+    font-family: var(--ion-font-family) !important;
+
+    &.fixed-header {
+        .mat-tab-header {
+            position: fixed;
+            z-index: 10;
+            width: 100%;
+            background: var(--card-background);
+        }
+
+        .mat-tab-body-wrapper {
+            padding-top: 48px;
+        }
+    }
+}
+
+.mat-tab-label {
+    font-family: var(--ion-font-family) !important;
+
+    &.mat-tab-label-content {
+        color: var(--tab-text-color);
+    }
+}
+
+.md-toast-dark {
+    --button-color: #fff;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+}

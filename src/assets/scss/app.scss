@@ -1,0 +1,27 @@
+/* 
+ * Design is a funny word. Some people think design means how it looks. 
+ * But of course, if you dig deeper, it's really how it works.
+ *
+ * - Steve Jobs
+ */
+
+// material themeing
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+$doc-app-primary: mat-palette($mat-indigo);
+$doc-app-accent: mat-palette($mat-cyan);
+$doc-app-warn: mat-palette($mat-pink);
+
+$doc-app-theme: mat-light-theme($doc-app-primary, $doc-app-accent, $doc-app-warn);
+@include angular-material-theme($doc-app-theme);
+
+// PMD stylebase
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'utilities';
+@import 'components';
+@import 'animations';
