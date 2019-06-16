@@ -1,0 +1,36 @@
+<div class="page__inner h-100">
+  <div class="login-wrapper">
+    <div class="header">
+      <h2>Register Number</h2>
+      <h6 class="anim">Please enter your active mobile number. We'll send OTP to verify.</h6>
+    </div>
+    <form [formGroup]="mobileNoForm" novalidate (ngSubmit)="onSubmit(mobileNoForm)">
+      <div class="input-row anim">
+        <mat-form-field appearance="outline" class="d-block">
+          <mat-label class="cff">Country Code</mat-label>
+          <mat-select class="select cff" formControlName="isdCode">
+            <mat-option *ngFor="let code of isdCodes" [value]="code.dial_code">
+              <i class="em em-flag-{{code.code}}"></i> &nbsp; {{code.name}} | {{code.dial_code}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="input-row anim">
+        <mat-form-field appearance="outline" class="d-block">
+          <mat-label class="cff">Mobile Number</mat-label>
+          <input matInput type="tel" class="cff" autocomplete="off" formControlName="mobileNo">
+          <mat-hint class="cff">{{mobileErrMsg}}</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="input-row anim">
+        <button class="btn__signin loading-btn" [class.loading]="formSubmitted" type="submit"
+          [disabled]="!mobileNoForm.valid || mobileError">Send OTP</button>
+      </div>
+    </form>
+    <div class="footer anim">
+      <div class="links">
+        <p>Already have account? <a routerLink="/login">Login </a></p>
+      </div>
+    </div>
+  </div>
+</div>

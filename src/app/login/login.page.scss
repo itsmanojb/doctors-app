@@ -1,0 +1,33 @@
+@import '../../assets/scss/mixins';
+
+.page__login {
+    padding: 0 1.5rem;
+    display: grid;
+    background: linear-gradient(var(--ion-color-primary-shade), var(--ion-color-primary));
+    display: block;
+    background-image: none;
+    background-color: #fff;
+    padding: 0;
+
+    &.bg__image {
+        background: rgba(255, 255, 255, 0.8) url('../../assets/images/hero.jpg') no-repeat;
+        background-blend-mode: overlay;
+        background-position-x: 25%;
+        background-size: cover;
+    }
+
+}
+
+.ui__view__block {
+    box-shadow: var(--box-shadow-varient-1);
+    border-radius: .5rem;
+    padding: 4rem 2rem 2rem;
+    width: 500px;
+    margin: auto;
+    background: #fff;
+    z-index: 1;
+    height: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    width: auto;
+}

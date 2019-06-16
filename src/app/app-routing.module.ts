@@ -7,6 +7,12 @@ const routes: Routes = [
     path: 'welcome',
     loadChildren: './welcome/welcome.module#WelcomePageModule',
   },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  {
+    path: 'register',
+    loadChildren: './register/register.module#RegisterPageModule',
+  },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: '**', loadChildren: './error/error.module#ErrorPageModule' },
 ];
 

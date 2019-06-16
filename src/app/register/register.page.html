@@ -1,0 +1,14 @@
+<ion-content>
+  <div class="ui__view__block">
+    <nav>
+      <div class="pager">
+        <a routerLink="/register/verify-mobile" routerLinkActive="active"></a>
+        <a routerLink="/register/associate-email" routerLinkActive="active"></a>
+        <a routerLink="/register/create-profile" routerLinkActive="active"></a>
+      </div>
+    </nav>
+    <main [@routerTransition]="getState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+    </main>
+  </div>
+</ion-content>

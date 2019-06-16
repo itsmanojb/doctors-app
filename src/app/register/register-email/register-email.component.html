@@ -1,0 +1,37 @@
+<div class="page__inner h-100">
+  <div class="login-wrapper">
+    <div class="header">
+      <h2>Login Credentials</h2>
+      <h6 class="anim">Provide email and choose password, which you'll use for sign in.</h6>
+    </div>
+    <form [formGroup]="loginCredentialForm" novalidate (ngSubmit)="onSubmit(loginCredentialForm)">
+      <div class="input-row anim">
+        <mat-form-field appearance="outline" class="d-block">
+          <mat-label class="cff">User Id</mat-label>
+          <input matInput placeholder="Your Email Address" type="text" class="cff" autocomplete="off"
+            formControlName="userId">
+          <mat-hint class="cff">{{emailErrMsg}}</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="input-row anim mb">
+        <mat-form-field appearance="outline" class="d-block">
+          <mat-label class="cff">Password</mat-label>
+          <input matInput placeholder="Choose password" [type]="pwHidden ? 'password' : 'text'" class="cff"
+            formControlName="pw">
+          <mat-icon matSuffix (click)="pwHidden = !pwHidden">{{pwHidden ? 'visibility' : 'visibility_off'}}
+          </mat-icon>
+          <mat-hint class="cff">Atleast 8 chars. with uppercase, lowercase, special character and number</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="input-row anim">
+        <button class="btn__signin loading-btn" [class.loading]="formSubmitted" type="submit"
+          [disabled]="!loginCredentialForm.valid || formSubmitted">Submit</button>
+      </div>
+    </form>
+    <div class="footer anim">
+      <div class="links">
+        <p>Didn't get OTP? <a class="clickable">Resend</a></p>
+      </div>
+    </div>
+  </div>
+</div>
