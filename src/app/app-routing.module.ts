@@ -7,6 +7,7 @@ const routes: Routes = [
     path: 'welcome',
     loadChildren: './welcome/welcome.module#WelcomePageModule',
   },
+  { path: '**', loadChildren: './error/error.module#ErrorPageModule' },
 ];
 
 @NgModule({
