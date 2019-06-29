@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { InteractionService } from './../../_services/interaction.service';
+import { NavController } from '@ionic/angular';
 
 // import dialCodesJson from '../../../assets/dummy/dialCodes.json';
 
@@ -39,7 +41,11 @@ export class SendOtpComponent implements OnInit {
   mobileErrMsg = '';
   mobileError = false;
 
-  constructor(private title: Title) {
+  constructor(
+    private title: Title,
+    private interact: InteractionService,
+    private nav: NavController,
+    ) {
     this.mobileNoForm = new FormGroup({
       isdCode: new FormControl('', Validators.required),
       mobileNo: new FormControl('', [
@@ -65,5 +71,11 @@ export class SendOtpComponent implements OnInit {
 
   async checkMobile() {}
 
-  async onSubmit(e) {}
+  async onSubmit(e) {
+    this.formSubmitted = true;
+    this.interact.changeAllowance(true);
+    setTimeout(() => {
+      this.nav.navigateForward('/register/associate-email');
+    }, 1500);
+  }
 }

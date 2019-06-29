@@ -4,30 +4,59 @@
       <h2>Doctor Profile</h2>
       <h6 class="anim">Please fill up the details.</h6>
     </div>
-    <form>
+    <form [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit(signupForm)">
       <div class="input-row anim">
         <mat-form-field appearance="outline" class="d-block">
-          <mat-label class="cff">Fullname</mat-label>
-          <input matInput type="text" class="cff" autocomplete="off">
+          <mat-label class="cff">Full Name</mat-label>
+          <input
+            matInput
+            type="text"
+            class="cff"
+            autocomplete="off"
+            formControlName="name"
+          />
           <!-- <mat-error *ngIf="userId.invalid">{{getErrorMessage('id')}}</mat-error> -->
         </mat-form-field>
       </div>
       <div class="input-row anim">
         <mat-form-field appearance="outline" class="d-block">
           <mat-label class="cff">Business Name</mat-label>
-          <input matInput type="text" class="cff" autocomplete="off">
+          <input
+            matInput
+            type="text"
+            class="cff"
+            autocomplete="off"
+            formControlName="bname"
+          />
           <!-- <mat-error *ngIf="userId.invalid">{{getErrorMessage('id')}}</mat-error> -->
         </mat-form-field>
       </div>
       <div class="input-row anim">
         <p class="hint-text">
-          Your full name is your default business name. Please edit if you've a business else keep the default.
+          Your full name is your default business name. Please edit if you've a
+          business else keep the default.
         </p>
-        <p class="hint-text"><strong>Changing of business name is not allowed afterwards. </strong></p>
+        <p class="hint-text">
+          <strong>Changing of business name is not allowed afterwards. </strong>
+        </p>
       </div>
       <div class="input-row">
-        <button class="btn__signin anim">Submit</button>
-        <button class="btn__cancel anim" routerLink="/welcome" routerDirection="root">Cancel</button>
+        <button
+          class="btn__signin anim loading-btn"
+          [class.loading]="formSubmitted"
+          type="submit"
+          [disabled]="!signupForm.valid"
+        >
+          Submit
+        </button>
+        <button
+          class="btn__cancel anim"
+          routerLink="/welcome"
+          routerDirection="root"
+          [disabled]="formSubmitted"
+        >
+          Cancel
+        </button>
       </div>
     </form>
     <!-- <div class="footer anim">
@@ -36,5 +65,4 @@
       </div>
     </div> -->
   </div>
-
 </div>
