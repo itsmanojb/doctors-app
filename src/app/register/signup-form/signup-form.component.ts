@@ -68,6 +68,6 @@ export class SignupFormComponent implements OnInit {
     }
     setTimeout(() => {
       this.nav.navigateForward('/home');
-    },         2500);
+    }, 2500);
   }
 }
