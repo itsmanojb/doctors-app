@@ -1,0 +1,81 @@
+ion-title span {
+    font-weight: 300;
+    color: var(--ion-color-medium);
+  }
+  
+  .trans-icon,
+  .trans-title {
+    color: var(--header-title-color);
+  }
+  
+  .topics__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    margin: var(--card-padding);
+  
+    .topic {
+      height: 80px;
+      background-color: #e4e6f5;
+      color: var(--ion-color-primary);
+      // color: #fff;
+      // background-color: var(--ion-color-primary);
+      border-radius: 4px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column-reverse;
+      font-size: 16px;
+      font-weight: bold;
+      word-break: break-word;
+      position: relative;
+      cursor: pointer;
+  
+      &.selected {
+        color: #fff;
+        background-color: var(--ion-color-primary);
+        // background-color: #e4e6f5;
+        // color: var(--ion-color-primary);
+        position: relative;
+  
+        // &:after {
+        //     content: '\2611';
+        //     position: absolute;
+        //     right: 0px;
+        //     top: 0;
+        //     height: 20px;
+        //     width: 30px;
+        //     color: var(--ion-color-primary);
+        //     font-size: 28px;
+        //     opacity: 0.95;
+        // }
+      }
+  
+      input[type='checkbox'] {
+        display: none;
+      }
+    }
+  }
+  
+  .no-topics {
+    background: url('../../../assets/icon/086-paper.png') no-repeat;
+    background-size: 90px;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    padding-bottom: 30px;
+    background-position: center 10px;
+  
+    &::after {
+      content: 'No Topics available';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      line-height: 30px;
+      color: #787878;
+      font-size: 15px;
+      text-transform: lowercase;
+    }
+  }
+  

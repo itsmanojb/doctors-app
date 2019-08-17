@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 // import { VideoDetailsComponent } from '../videos/video-details/video-details.component';
 // import { InfoModalComponent } from '../_components/info-modal/info-modal.component';
 import { SearchComponent } from '../_components/search/search.component';
-// import { TopicsComponent } from '../_components/topics/topics.component';
+import { TopicsComponent } from '../_components/topics/topics.component';
 // import { CuserUI } from '../_interfaces/user';
 // import { DataService } from '../_services/data.service';
 import { InteractionService } from '../_services/interaction.service';
@@ -72,8 +72,8 @@ export class HomePage implements OnInit {
   };
 
   eduVidslideOpts = {
-    slidesPerView: 1.2,
-    spaceBetween: 20,
+    // slidesPerView: 1.2,
+    // spaceBetween: 20,
   };
 
 
@@ -150,27 +150,12 @@ export class HomePage implements OnInit {
     }
   }
 
-  // async openTopics() {
-  //   const modal = await this.modal.create({
-  //     component: TopicsComponent,
-  //     componentProps: {
-  //       value: {
-  //         uid: this.user.userId,
-  //         token: this.token,
-  //       },
-  //     },
-  //   });
-  //   modal.onDidDismiss()
-  //     .then((res: any) => {
-  //       if (res.data) {
-  //         this.presentToast(res.data);
-  //         if (res.role === 'updated') {
-  //           this.updateTopics();
-  //         }
-  //       }
-  //     });
-  //   return await modal.present();
-  // }
+  async openTopics() {
+    const modal = await this.modal.create({
+      component: TopicsComponent,
+    });
+    return await modal.present();
+  }
 
 
   // async playVideo(video) {
@@ -191,16 +176,6 @@ export class HomePage implements OnInit {
     });
     toast.present();
   }
-
-  // async showInfoModal(view: string) {
-  //   const modal = await this.modal.create({
-  //     component: InfoModalComponent,
-  //     componentProps: {
-  //       view
-  //     }
-  //   });
-  //   return await modal.present();
-  // }
 
   async hideModal() {
     const modal = await this.modal.getTop();

@@ -1,0 +1,35 @@
+<ion-header class="flat" [class.bordered]="dataLoading">
+  <ion-toolbar class="trans">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()" class="btn__modal btn__cancel">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+    <ion-title text-center class="trans-title">Select Topics <span
+        *ngIf="selectedTopics.length> 0">({{selectedTopics.length}})</span></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()" class="btn__modal btn__submit"
+        [disabled]="noTopics || dataSubmitted || !hasSelected || dataLoading || dataErr">
+        Save
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content__loading" *ngIf="dataLoading">
+    <ion-spinner name="lines"></ion-spinner>
+  </div>
+  <div class="content__empty" *ngIf="!dataLoading && noTopics">
+    <div class="no-topics"></div>
+  </div>
+  <div class="content__loaded" *ngIf="!dataLoading && !noTopics">
+    <div class="topics__list">
+      <label class="topic" for="cb{{i}}" *ngFor="let item of allTopics; let i = index"
+        [class.selected]="checkSelected(item)">
+        <input type="checkbox" id="cb{{i}}" [checked]="item.selected"
+          (click)="selectTopic(item, $event.target.checked)">
+        {{item}}
+      </label>
+    </div>
+  </div>
+</ion-content>

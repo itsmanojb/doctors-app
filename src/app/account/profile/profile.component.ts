@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController, ToastController } from '@ionic/angular';
 import { Title } from '@angular/platform-browser';
-// import { TopicsComponent } from 'src/app/_components/topics/topics.component';
+import { TopicsComponent } from '../../_components/topics/topics.component';
 
 @Component({
   selector: 'app-profile',
@@ -35,27 +35,12 @@ export class ProfileComponent implements OnInit {
     }, 2000);
   }
 
-  // async openTopics() {
-  //   const modal = await this.modal.create({
-  //     component: TopicsComponent,
-  //     componentProps: {
-  //       value: {
-  //         uid: this.user.userId,
-  //         token: this.user.jwt_token,
-  //       },
-  //     },
-  //   });
-  //   modal.onDidDismiss()
-  //     .then((res: any) => {
-  //       if (res.data) {
-  //         this.presentToast(res.data);
-  //         if (res.role === 'updated') {
-  //           this.getUserProfile(false);
-  //         }
-  //       }
-  //     });
-  //   return await modal.present();
-  // }
+  async openTopics() {
+    const modal = await this.modal.create({
+      component: TopicsComponent
+    });
+    return await modal.present();
+  }
 
   async presentToast(msg) {
     const toast = await this.toast.create({
