@@ -1,3 +1,4 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-app [class.offline]="offline" [class.dark-mode]="darkmode">
+    <div class="offline-indicator" [class.shown]="offline">You seem offline. Please check your internet connection.</div>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-app>
