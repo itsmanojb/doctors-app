@@ -1,0 +1,151 @@
+<ion-header class="flat">
+    <ion-toolbar class="colored">
+      <ion-buttons slot="start">
+        <ion-button color="light" (click)="goBack()">
+          <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title color="light" text-center>My Account</ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="light">
+          <ion-icon ios="md-more" md="md-more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="account-page">
+      <div class="user-header">
+        <!-- <div class="avatar">
+          <img src="//via.placeholder.com/100" alt="...">
+        </div> -->
+        <div class="user-info">
+          <h4>User Name
+            <span class="verified">
+              <ion-icon ios="ios-checkmark-circle" md="ios-checkmark-circle"></ion-icon>
+            </span>
+          </h4>
+          <p>UserID : </p>
+        </div>
+      </div>
+      <ion-list class="list-wrapper main-list">
+        <ion-item lines="none" routerDirection="forward" routerLink="/account/my-profile">
+          <ion-icon slot="start" ios="md-person" md="md-person"></ion-icon>
+          <ion-label text-wrap>
+            <h4>Profile</h4>
+            <ion-text color="medium">
+              View and manage your public profile.
+            </ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none" routerDirection="forward" routerLink="/contacts">
+          <ion-icon slot="start" ios="ios-call" md="ios-call"></ion-icon>
+          <ion-label text-wrap>
+            <h4>My Contacts</h4>
+            <ion-text color="medium">
+              Manage fax numbers and other saved contacts.
+            </ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none" routerDirection="forward" routerLink="/wallet">
+          <ion-icon slot="start" ios="ios-wallet" md="ios-wallet"></ion-icon>
+          <ion-label text-wrap>
+            <h4>Token Wallet</h4>
+            <ion-text color="medium">
+              PatientMD token wallet.
+            </ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="openTopicsList()">
+          <ion-icon slot="start" ios="ios-basketball" md="ios-basketball"></ion-icon>
+          <ion-label text-wrap>
+            <h4>Common Topics</h4>
+            <ion-text color="medium">
+              Explore topics of your interest.
+            </ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none" routerDirection="forward" routerLink="/shopping">
+          <ion-icon slot="start" ios="ios-cart" md="ios-cart"></ion-icon>
+          <ion-label text-wrap>
+            <h4>Shopping Cart</h4>
+            <ion-text color="medium">
+              Cart, purchase history and order tracking.
+            </ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon slot="start" ios="md-download" md="md-download"></ion-icon>
+          <ion-label text-wrap>
+            <h4>Saved items</h4>
+            <ion-text color="medium">
+              Downloaded and saved contents.
+            </ion-text>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <section>
+        <ion-label class="section__title" slot="start">
+          My Posts
+        </ion-label>
+        <div class="overscroll-wrapper">
+          <ion-slides class="slides__social" [options]="slideOpts">
+            <ion-slide tappable>
+              <div class="card" (click)="goto('social/doctors-network/my-posts')">
+                <div class="cover dnetwork"></div>
+                <div class="title">Doctors Network</div>
+              </div>
+            </ion-slide>
+            <ion-slide tappable>
+              <div class="card" (click)="goto('social/community-feed/my-posts')">
+                <div class="cover tcircle"></div>
+                <div class="title">Social Community</div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </section>
+      <section>
+        <ion-label class="section__title" slot="start">
+          Settings
+        </ion-label>
+        <ion-list class="list-wrapper setting-list">
+          <ion-item lines="inset">
+            <ion-label>Dark Mode</ion-label>
+            <ion-toggle slot="end" (ionChange)="changeUIMode($event)" [checked]="darkMode"></ion-toggle>
+          </ion-item>
+          <ion-item lines="inset">
+            <ion-label>Do not disturb</ion-label>
+            <ion-toggle slot="end"></ion-toggle>
+          </ion-item>
+          <ion-item lines="inset" detail>
+            <ion-label>Languages</ion-label>
+            <ion-label slot="end" text-right>
+              <ion-text color="primary">English</ion-text>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="inset" detail>
+            <ion-label>Subscription Details</ion-label>
+          </ion-item>
+          <ion-item lines="inset" detail>
+            <ion-label>Change Password</ion-label>
+          </ion-item>
+          <ion-item lines="inset" detail>
+            <ion-label>Help & Support</ion-label>
+          </ion-item>
+          <ion-item lines="inset" class="clickable" (click)="logout()">
+            <ion-label class="logout">Log Out</ion-label>
+          </ion-item>
+        </ion-list>
+      </section>
+      <section>
+        <div class="app-info">
+          <h6>{{appName}}</h6>
+          <small>Version {{version}}</small>
+        </div>
+      </section>
+    </div>
+  </ion-content>
+  <ion-footer class="flat">
+    <footer-tabs></footer-tabs>
+  </ion-footer>

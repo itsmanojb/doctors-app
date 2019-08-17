@@ -48,7 +48,7 @@ export class HomePage implements OnInit {
   };
 
   socialSlideOpts = {
-    slidesPerView: 2,
+    slidesPerView: 2.2,
     // slidesPerColumn: 1,
     // grabCursor: true,
     freeMode: true,
@@ -89,7 +89,6 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Doctor Dashboard');
-    this.showReminder = true;
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         this.hideModal();

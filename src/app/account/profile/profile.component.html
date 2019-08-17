@@ -1,0 +1,244 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" class="back-button" color="light" (click)="goBack()">
+        <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="page__user-profile">
+    <app-profile-skeleton *ngIf="dataLoading; else dataLoaded"></app-profile-skeleton>
+    <ng-template #dataLoaded>
+      <div class="profile-header" [class.show-stats]="0">
+        <div class="header-fill">
+          <img *ngIf="userImgUrl" [src]="userImgUrl" alt="">
+        </div>
+        <div class="cover">
+          <div class="avatar">
+            <img src="//via.placeholder.com/300" alt="">
+          </div>
+          <div class="nameplate">
+            <h3>Name Of Doctor</h3>
+            <p>Registartion No.</p>
+          </div>
+        </div>
+        <div class="profile-stats fixed-bottom trans" [class.certified]="1">
+          <div class="experience">
+            <strong>30 Yr</strong>
+            <span>Experience</span>
+          </div>
+          <div class="ceritification">
+            <strong>Doctor Council</strong>
+            <span>Certified</span>
+          </div>
+          <div class="ratings">
+            <strong>3.5 / 5</strong>
+            <span>Ratings</span>
+          </div>
+        </div>
+      </div>
+      <div class="user-profile-item about-me">
+        <div class="item__header">
+          <h3>About Me</h3>
+        </div>
+        <div class="item__content pb-0">
+          <p>@handleName</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto quos reiciendis saepe fugiat dolorum porro laboriosam magnam voluptas ab autem consequuntur quasi mollitia, ullam nobis nulla, accusantium eos eius optio.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, repellat!
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, a deleniti? At ea quibusdam praesentium voluptas quasi.
+          </p>
+        </div>
+        <div class="item__sub-header">
+          Languags known:
+          <ul class="language-list">
+            <li>Hindi</li>
+            <li>English</li>
+          </ul>
+        </div>
+      </div>
+      <div class="user-profile-item contact">
+        <div class="item__header">
+          <h3>Contacts</h3>
+        </div>
+        <ion-list>
+          <ion-item>
+            <ion-avatar slot="start">
+              <ion-icon md="ios-home" ios="ios-home"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h3>Address</h3>
+              <p class="address">
+                <span>address line 1</span><span>City</span><span>State</span><span>000000</span>
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <ion-icon md="md-mail-open" ios="md-mail-open"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h3>Email</h3>
+              <p>email@example.com</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <ion-icon md="ios-call" ios="ios-call"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h3>Contact</h3>
+              <p>+109378611</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="user-profile-item practice">
+        <div class="item__header">
+          <h3>Practice Area</h3>
+        </div>
+        <ion-list>
+          <ion-item lines="inset">
+            <ion-label>Practice Area</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="user-profile-item academics">
+        <div class="item__header">
+          <h3>Academics</h3>
+        </div>
+        <ion-list collapsible [class.collapsed]="medSchoolCollapsed" [class.inactive]="0">
+          <ion-list-header (click)="medSchoolCollapsed = !medSchoolCollapsed">
+            Medical School
+            <span>
+              <ion-icon md="ios-arrow-forward" ios="ios-arrow-forward"></ion-icon>
+            </span>
+          </ion-list-header>
+          <div class="panel">
+            <ion-item lines="none">
+              <ion-label>
+                <h2>Medical School</h2>
+                <p>school.location, country &mdash; class of 0000 </p>
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+        <ion-list collapsible [class.collapsed]="fellowshipCollapsed" [class.inactive]="1">
+          <ion-list-header (click)="fellowshipCollapsed = !fellowshipCollapsed">
+            Fellowships (0)
+            <span>
+              <ion-icon md="ios-arrow-forward" ios="ios-arrow-forward"></ion-icon>
+            </span>
+          </ion-list-header>
+          <div class="panel">
+              <ion-item lines="none">
+                <ion-label>
+                  <h2></h2>
+                  <p></p>
+                </ion-label>
+              </ion-item>
+            </div>
+        </ion-list>
+        <ion-list collapsible [class.collapsed]="residencyCollapsed" [class.inactive]="1">
+          <ion-list-header (click)="residencyCollapsed = !residencyCollapsed">
+            Residencies (0)
+            <span>
+              <ion-icon md="ios-arrow-forward" ios="ios-arrow-forward"></ion-icon>
+            </span>
+          </ion-list-header>
+          <div class="panel">
+            <ion-item lines="none">
+              <ion-label>
+                <h2></h2>
+                <p></p>
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="user-profile-item degrees">
+        <div class="item__header">
+          <h3>Degrees &amp; Certifications</h3>
+        </div>
+        <ion-list>
+          <ion-item lines="inset">
+            <ion-label>
+              <h2>MBBS</h2>
+              <p>degree.location, .country &mdash; 0000 </p>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="inset">
+              <ion-label>
+                <h2>MD</h2>
+                <p>degree.location, .country &mdash; 0000 </p>
+              </ion-label>
+            </ion-item>
+          <ion-item lines="inset">
+            <ion-label>
+              <h2>certificate</h2>
+              <p>location, .country &mdash; 0000 </p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="user-profile-item recognition">
+        <div class="item__header pb-0">
+          <h3>Awards &amp; Recognitions</h3>
+        </div>
+        <ion-list>
+          <ion-item lines="inset">
+            <ion-label text-wrap>
+              <span class="award-item">
+                award.name, award.year / award.givenBy - award.country
+              </span>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="user-profile-item topics">
+        <div class="item__header">
+          <h3>Topics</h3>
+        </div>
+        <div class="item__content">
+          <div class="topics-list">
+            <div class="topic">Topic 1</div>
+            <div class="topic">Topic 2</div>
+            <div class="topic">Topic 3</div>
+            <div class="topic" (click)="openTopics()">Add <span>more</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="user-profile-item others">
+        <div class="item__header">
+          <h3>Account Details</h3>
+        </div>
+        <ion-list class="mb-0">
+          <ion-item class="other-info" lines="none">
+            <ion-label>Profile Completion:</ion-label>
+            <ion-label slot="end" text-right>80%</ion-label>
+          </ion-item>
+          <ion-item class="other-info" lines="none">
+            <ion-label>
+              Certification Status:
+            </ion-label>
+            <ion-label slot="end" text-right color="primary">Certified</ion-label>
+          </ion-item>
+          <ion-item class="other-info" detail lines="none" (click)="goToEditProfile()">
+            <ion-label>
+              Edit Profile Details
+            </ion-label>
+          </ion-item>
+          <ion-item class="other-info" detail lines="none">
+            <ion-label>
+              Settings
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+      </div>
+    </ng-template>
+  </div>
+</ion-content>
+<ion-footer class="flat">
+  <footer-tabs></footer-tabs>
+</ion-footer>
