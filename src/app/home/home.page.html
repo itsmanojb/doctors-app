@@ -1,9 +1,540 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
+<ion-header class="flat">
+  <ion-toolbar class="colored">
+    <ion-buttons slot="start">
+      <ion-button color="light" routerDirection="forward" routerLink="/account">
+        <ion-icon name="contact"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" text-center>Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="initSearch()">
+        <ion-icon ios="ios-search" md="ios-search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+  <section class="intro animated fadeIn" *ngIf="showReminder">
+    <img src="assets/images/doctor-intro.jpg" alt="doctor intro">
+    <div class="intro-text">
+      <h2>Hi</h2>
+      <p>It seems, some required profile information are missing or the submitted infromation is not certified. Due to
+        that you've been given limited access to the features of the app.</p>
+      <a (click)="goToProfile()" class="go-btn">Go to Profile</a>
+      <a (click)="dismissReminder()" class="skip-btn">I'll do that later</a>
+    </div>
+  </section>
+  <section>
+    <!-- <ion-label class="section__title" slot="start">
+        Advanced Services
+      </ion-label> -->
+    <ion-slides class="slides__dashboard featured mt-0 full-width" [options]="slideOpts" pager="true">
+      <ion-slide>
+        <div class="slides__featured">
+          <div class="banner" style="background-image: url('assets/images/genomics.png')">
+            <div class="main-text">PatientMD Genomics</div>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slides__featured">
+          <div class="banner" style="background-image: url('assets/images/dermatoscopy.jpg')">
+            <div class="main-text">Virtual Dermatoscopy</div>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slides__featured">
+          <div class="banner" style="background-image: url('assets/images/tourism.jpg')">
+            <div class="main-text">Healthcare Tourism</div>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slides__featured">
+          <div class="banner" style="background-image: url('assets/images/blogs.jpg')">
+            <div class="main-text">PatientMD Blogs</div>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </section>
+  <!-- Social -->
+  <section>
+    <ion-label class="section__title" slot="start">
+      Social Network
+    </ion-label>
+    <div class="overscroll-wrapper">
+      <ion-slides class="slides__dashboard social" [options]="socialSlideOpts">
+        <ion-slide tappable>
+          <div class="card" routerLink="/social/community-feed" routerDirection="forward">
+            <div class="cover community"></div>
+            <div class="title">Community</div>
+          </div>
+        </ion-slide>
+        <ion-slide tappable>
+          <div class="card" routerLink="/social/doctors-network" routerDirection="forward">
+            <div class="cover docnet"></div>
+            <div class="title">Doctors' Network</div>
+          </div>
+        </ion-slide>
+        <ion-slide tappable>
+          <div class="card" routerLink="/social/care-coordination" routerDirection="forward">
+            <div class="cover carecord"></div>
+            <div class="title">Care Cordination</div>
+          </div>
+        </ion-slide>
+        <ion-slide tappable>
+          <div class="card" routerLink="/social/topic-circle" routerDirection="forward">
+            <div class="cover topics"></div>
+            <div class="title">Topic Circle</div>
+          </div>
+        </ion-slide>
+        <ion-slide tappable>
+          <div class="card" routerLink="/news" routerDirection="forward">
+            <div class="cover news"></div>
+            <div class="title">News</div>
+          </div>
+        </ion-slide>
+        <ion-slide tappable>
+          <div class="card" routerLink="/videos" routerDirection="forward">
+            <div class="cover eduvids"></div>
+            <div class="title">Videos</div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </section>
+  <!-- Patient Care -->
+  <section>
+    <ion-label class="section__title" slot="start">
+      Patient Care
+    </ion-label>
+    <div class="overscroll-wrapper">
+      <ion-slides class="slides__dashboard patient-care" [options]="careSlideOpts">
+        <ion-slide tappable>
+          <div class="card" routerLink="/schedule" routerDirection="forward">
+            <div class="cover c-appoint"></div>
+            <div class="title">Appointment</div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="card">
+            <div class="cover t-appoint"></div>
+            <div class="title">Telemedicine</div>
+          </div>
+        </ion-slide>
+        <ion-slide tappable>
+          <div class="card" routerLink="/e-health-records" routerDirection="forward">
+            <div class="cover ehr"></div>
+            <div class="title">EHR</div>
+          </div>
+        </ion-slide>
+        <ion-slide tappable>
+          <div class="card" routerLink="/e-fax" routerDirection="forward">
+            <div class="cover efax"></div>
+            <div class="title">E-Fax</div>
+          </div>
+        </ion-slide>
+        <ion-slide tappable>
+          <div class="card" routerLink="/referrals" routerDirection="forward">
+            <div class="cover referrals"></div>
+            <div class="title">Referrals</div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </section>
+  <!-- Referrals -->
+  <section>
+    <ion-label class="section__title" slot="start">
+      New Referrals
+    </ion-label>
+    <ion-list class="referral-list" (click)="showReferrals()">
+      <ion-item lines="inset">
+        <ion-avatar slot="start">
+          <img src="//via.placeholder.com/100" alt="user">
+        </ion-avatar>
+        <ion-label>
+          <ion-text color="medium">
+            <h3>Doctor Name</h3>
+          </ion-text>
+          <p>Speciality, Degree</p>
+        </ion-label>
+        <ion-badge slot="end" color="primary">2</ion-badge>
+      </ion-item>
+      <ion-item lines="inset">
+        <ion-avatar slot="start">
+          <img src="//via.placeholder.com/100" alt="user">
+        </ion-avatar>
+        <ion-label>
+          <ion-text color="medium">
+            <h3>Doctor Name</h3>
+          </ion-text>
+          <p>Speciality, Degree</p>
+        </ion-label>
+        <!-- <ion-badge slot="end" color="primary"></ion-badge> -->
+      </ion-item>
+    </ion-list>
+  </section>
+  <!-- Orders -->
+  <section>
+    <ion-label class="section__title" slot="start">
+      Your Orders
+      <ion-text class="more-link" text-right routerLink="/shopping/order-history" routerDirection="forward">View All
+      </ion-text>
+    </ion-label>
 
+    <ion-slides class="slides__dashboard orders" [options]="ordersSlideOpts">
+      <ion-slide>
+        <ion-list class="orders-list">
+          <ion-item lines="inset">
+            <ion-thumbnail slot="end">
+              <img src="assets/images/medkit.png">
+            </ion-thumbnail>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h3>ST JOHNS FIRST AID SJF P5</h3>
+              </ion-text>
+              <p>First Aid Kit (Workplace, Vehicle)</p>
+              <small>Oct 31, 2018</small>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none" detail>
+            <ion-label>
+              <small>Track Order</small>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+  </section>
+  <!-- Desktop app -->
+  <section>
+    <div class="dektop-app clickable">
+      <h5>Continue work from your desktop.</h5>
+      <p>Tap to know more.</p>
+    </div>
+  </section>
+  <!-- Deals -->
+  <section>
+    <ion-label class="section__title" slot="start">
+      Latest Deals
+      <ion-text class="more-link" text-right routerLink="/marketplace" routerDirection="forward">View All</ion-text>
+    </ion-label>
+    <ion-slides class="slides__dashboard deals"  [options]="dealsSlideOpts">
+      <ion-slide>
+        <ion-list class="deals-list">
+          <ion-item lines="inset" (click)="selectDeal()">
+            <ion-thumbnail slot="start">
+              <img src="//via.placeholder.com/100" alt="deal">
+            </ion-thumbnail>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h3>Deal Title</h3>
+              </ion-text>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
+                quibusdam unde dolore error deleniti.</p>
+              <small>At place</small>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="inset" (click)="selectDeal()">
+            <ion-thumbnail slot="start">
+              <img src="//via.placeholder.com/100" alt="deal">
+            </ion-thumbnail>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h3>Deal Title</h3>
+              </ion-text>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
+                quibusdam unde dolore error deleniti.</p>
+              <small>At place</small>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+      <ion-slide>
+        <ion-list class="deals-list">
+          <ion-item lines="inset" (click)="selectDeal()">
+            <ion-thumbnail slot="start">
+              <img src="//via.placeholder.com/100" alt="deal">
+            </ion-thumbnail>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h3>Deal Title</h3>
+              </ion-text>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
+                quibusdam unde dolore error deleniti.</p>
+              <small>At place</small>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="inset" (click)="selectDeal()">
+            <ion-thumbnail slot="start">
+              <img src="//via.placeholder.com/100" alt="deal">
+            </ion-thumbnail>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h3>Deal Title</h3>
+              </ion-text>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
+                quibusdam unde dolore error deleniti.</p>
+              <small>At place</small>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+      <ion-slide>
+        <ion-list class="deals-list">
+          <ion-item lines="inset" (click)="selectDeal()">
+            <ion-thumbnail slot="start">
+              <img src="//via.placeholder.com/100" alt="deal">
+            </ion-thumbnail>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h3>Deal Title</h3>
+              </ion-text>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
+                quibusdam unde dolore error deleniti.</p>
+              <small>At place</small>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="inset" (click)="selectDeal()">
+            <ion-thumbnail slot="start">
+              <img src="//via.placeholder.com/100" alt="deal">
+            </ion-thumbnail>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h3>Deal Title</h3>
+              </ion-text>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
+                quibusdam unde dolore error deleniti.</p>
+              <small>At place</small>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+  </section>
+  <!-- News -->
+  <section>
+    <ion-label class="section__title" slot="start">
+      Top News
+      <ion-text class="more-link" text-right routerLink="/news" routerDirection="forward">View All</ion-text>
+    </ion-label>
+    <ion-list class="news-list">
+      <ion-item lines="inset">
+        <ion-thumbnail slot="end">
+          <img src="//via.placeholder.com/200" alt="...">
+        </ion-thumbnail>
+        <ion-label text-wrap>
+          <ion-text color="primary">
+            <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+          </ion-text>
+          <p>Lorem, ipsum dolor.</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="inset">
+        <ion-thumbnail slot="end">
+          <img src="//via.placeholder.com/200" alt="...">
+        </ion-thumbnail>
+        <ion-label text-wrap>
+          <ion-text color="primary">
+            <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+          </ion-text>
+          <p>Lorem, ipsum dolor.</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="inset">
+        <ion-thumbnail slot="end">
+          <img src="//via.placeholder.com/200" alt="...">
+        </ion-thumbnail>
+        <ion-label text-wrap>
+          <ion-text color="primary">
+            <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+          </ion-text>
+          <p>Lorem, ipsum dolor.</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </section>
+  <!-- Privacy policy -->
+  <section class="announcement static" *ngIf="1">
+    <div class="close-btn" (click)="hideBanner()">&times;</div>
+    <div class="data-policies">
+      <h4>Your Data, Our Concern.</h4>
+      <p>A privacy policy is a statement or a legal document (in privacy law) that discloses some or all of the ways a
+        party gathers, uses, discloses, and manages a customer or client's data. It fulfills a legal requirement to
+        protect a customer or client's privacy.</p>
+      <p>Click to read more.</p>
+
+      <div class="act">
+        <button (click)="showInfoModal('privacy')">Privacy Policies</button>
+        <button (click)="showInfoModal('terms')">Terms of Use</button>
+      </div>
+    </div>
+  </section>
+  <!-- Appo -->
+  <section>
+    <ion-label class="section__title" slot="start">
+      Recent Appointments
+      <ion-text class="more-link" text-right (click)="gotoAppointments()">See All
+      </ion-text>
+    </ion-label>
+    <div class="overscroll-wrapper">
+      <ion-slides class="slides__dashboard contact-list" [options]="patientsSlideOpts">
+        <ion-slide tappable (click)="selectPatient()">
+          <div class="contact">
+            <div class="avatar">
+              <img src="//via.placeholder.com/200" alt="...">
+            </div>
+            <div class="name">User Name</div>
+            <span class="age">(0)</span>
+          </div>
+        </ion-slide>
+        <ion-slide tappable (click)="selectPatient()">
+          <div class="contact">
+            <div class="avatar">
+              <img src="//via.placeholder.com/200" alt="...">
+            </div>
+            <div class="name">User Name</div>
+            <span class="age">(0)</span>
+          </div>
+        </ion-slide>
+        <ion-slide tappable (click)="selectPatient()">
+          <div class="contact">
+            <div class="avatar">
+              <img src="//via.placeholder.com/200" alt="...">
+            </div>
+            <div class="name">User Name</div>
+            <span class="age">(0)</span>
+          </div>
+        </ion-slide>
+        <ion-slide tappable (click)="selectPatient()">
+          <div class="contact">
+            <div class="avatar">
+              <img src="//via.placeholder.com/200" alt="...">
+            </div>
+            <div class="name">User Name</div>
+            <span class="age">(0)</span>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </section>
+  <!-- Videos -->
+  <section>
+    <ion-label class="section__title" slot="start">
+      Videos
+      <ion-text class="more-link" text-right (click)="gotoVideos()">View All</ion-text>
+    </ion-label>
+    <ion-slides class="slides__dashboard eduvids" [options]="eduVidslideOpts">
+      <ion-slide tappable>
+        <div class="video-tile" (click)="playVideo()">
+          <div class="cover" [class.show-play-btn]="1">
+            <img src="//via.placeholder.com/200x150" alt="...">
+          </div>
+          <span class="title">Lorem ipsum dolor sit amet consectetur.</span>
+        </div>
+      </ion-slide>
+      <ion-slide tappable>
+        <div class="video-tile" (click)="playVideo()">
+          <div class="cover" [class.show-play-btn]="1">
+            <img src="//via.placeholder.com/200x150" alt="...">
+          </div>
+          <span class="title">Lorem ipsum dolor sit amet consectetur.</span>
+        </div>
+      </ion-slide>
+      <ion-slide tappable>
+        <div class="video-tile" (click)="playVideo()">
+          <div class="cover" [class.show-play-btn]="1">
+            <img src="//via.placeholder.com/200x150" alt="...">
+          </div>
+          <span class="title">Lorem ipsum dolor sit amet consectetur.</span>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </section>
+  <!-- Other Apps -->
+  <section>
+    <ion-label class="section__title" slot="start">
+      Other Services
+    </ion-label>
+    <ion-slides class="slides__dashboard featured caption__top" [options]="slideOpts" pager="true">
+      <ion-slide>
+        <div class="slides__featured">
+          <div class="banner masked" style="background-image: url('assets/images/patient-app.jpg')">
+            <div class="main-text">Patient App</div>
+            <div class="subtext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis, quod.</div>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slides__featured">
+          <div class="banner masked" style="background-image: url('assets/images/business-app.jpg')">
+            <div class="main-text">Business APP</div>
+            <div class="subtext">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slides__featured">
+          <div class="banner masked" style="background-image: url('assets/images/sales-app.jpg')">
+            <div class="main-text">Sales App</div>
+            <div class="subtext">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore corrupti et illo.
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slides__featured">
+          <div class="banner masked" style="background-image: url('assets/images/news-admin-app.jpg')">
+            <div class="main-text">News Admin App</div>
+            <div class="subtext">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore corrupti et illo.
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </section>
+  <!-- Q Settings -->
+  <section>
+    <ion-label class="section__title">Quick Settings</ion-label>
+    <div class="list-wrapper settings">
+      <ion-list>
+        <ion-item lines="inset">
+          <ion-label>Licence</ion-label>
+          <ion-label slot="end" text-right>
+            <ion-text color="primary">Free</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset" class="clickable" (click)="openTopics()">
+          <ion-label>Common Topics</ion-label>
+          <ion-label slot="end" text-right>
+            <ion-text color="primary" class="topics">
+              <span>Topic 1</span>
+              <span>Topic 2</span>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset">
+          <ion-label>Dark Mode</ion-label>
+          <ion-toggle slot="end" (ionChange)="changeUIMode($event)" [checked]="darkMode"></ion-toggle>
+        </ion-item>
+        <ion-item lines="inset">
+          <ion-label>Do not disturb</ion-label>
+          <ion-toggle slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item lines="none" detail>
+          <ion-label>
+            <ion-text color="primary">
+              <small>View All Settings</small>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </section>
 </ion-content>
+<ion-footer class="flat">
+  <footer-tabs></footer-tabs>
+</ion-footer>

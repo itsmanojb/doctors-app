@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
@@ -11,10 +11,17 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ComponentsModule } from './_components/components.module';
+import { SearchComponent } from './_components/search/search.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [
+    AppComponent,
+    SearchComponent,
+  ],
+  entryComponents: [
+    SearchComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -24,6 +31,10 @@ import { AppRoutingModule } from './app-routing.module';
     IonicStorageModule.forRoot(),
     HttpModule,
     AppRoutingModule,
+    ComponentsModule,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,26 @@
+.gsearch {
+  padding-right: 12px;
+}
+
+.no-search {
+  background: url('../../../assets/icon/164-search.png') no-repeat;
+  background-size: 70px;
+  height: 150px;
+  width: 150px;
+  position: relative;
+  padding-bottom: 50px;
+  background-position: center 10px;
+
+  &::after {
+    content: 'Search deals, mails, conversations, posts';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #787878;
+    font-size: 15px;
+    text-transform: lowercase;
+    line-height: 22px;
+  }
+}

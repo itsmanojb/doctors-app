@@ -1,0 +1,21 @@
+<nav>
+  <button (click)="switchTabs('home', 1)" [class.current]="selectedTab === 1">
+    <ion-icon ios="md-apps" md="md-apps"></ion-icon>
+    <span class="text">Home</span>
+  </button>
+  <button (click)="switchTabs('schedule', 2)" [class.current]="selectedTab === 2">
+    <ion-icon ios="ios-calendar" md="ios-calendar"></ion-icon>
+    <span class="text">Schedule</span>
+  </button>
+  <div class="special">
+    <button (click)="callSylvie()"></button>
+  </div>
+  <button (click)="switchTabs('mailbox', 3)" [class.current]="selectedTab === 3">
+    <ion-icon ios="md-mail" md="md-mail"></ion-icon>
+    <span class="text">Mailbox</span>
+  </button>
+  <button (click)="switchTabs('notifications', 4)" [class.current]="selectedTab === 4">
+    <ion-icon ios="md-notifications-outline" md="md-notifications-outline"></ion-icon>
+    <span class="text">Updates</span>
+  </button>
+</nav>
