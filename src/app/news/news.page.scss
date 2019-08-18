@@ -1,0 +1,129 @@
+.news__latest {
+  padding-top: 20px;
+}
+
+.news__card {
+  padding: 10px 1rem 20px;
+  position: relative;
+  margin-bottom: 1px;
+
+  .headline {
+    margin: 0;
+    padding: .5rem 0;
+    font-size: 24px;
+    color: var(--text-color);
+  }
+
+  figure {
+    margin: 10px 0;
+
+    img {
+      border-radius: 6px;
+    }
+
+    figcaption {
+      color: #888;
+      font-size: 13px;
+      line-height: 1.25;
+      text-align: left
+    }
+  }
+
+  .meta {
+    font-size: 14px;
+    color: var(--text-color);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background-color: #f6f7f8;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0
+  }
+}
+
+.news-list {
+  padding: 5px 0;
+
+  ion-item {
+    padding: 6px 0;
+    position: relative;
+
+    &:not(:last-of-type)::after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      background-color: #f6f7f8;
+      left: 1rem;
+      right: 1rem;
+      bottom: 0
+    }
+  }
+
+  ion-thumbnail {
+
+    width: 80px;
+    height: 80px;
+    margin: 20px 8px;
+
+    img {
+      border-radius: 4px;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  ion-label {
+    h3 {
+      font-weight: 500;
+      font-size: 16px;
+      margin: 0
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--text-color);
+      margin: 2px 0;
+      line-height: 16px;
+    }
+
+    small {
+      color: var(--text-muted-color);
+    }
+  }
+}
+
+.no-news {
+  background: url('../../assets/icon/009-archive.png') no-repeat;
+  background-size: 90px;
+  height: 150px;
+  width: 150px;
+  position: relative;
+  padding-bottom: 30px;
+  background-position: center 10px;
+
+  &::after {
+    content: 'No News Update';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 30px;
+    color: #787878;
+    font-size: 15px;
+    text-transform: lowercase;
+  }
+}
+
+.credit {
+  text-align: center;
+  padding: 10px;
+  margin: 40px auto;
+  font-size: 14px;
+  color: var(--ion-color-medium-shade);
+}

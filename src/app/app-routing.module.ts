@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
   { path: 'schedule', loadChildren: './schedule/schedule.module#SchedulePageModule' },
+  { path: 'news', loadChildren: './news/news.module#NewsPageModule' },
   { path: 'assistant', loadChildren: './assistant/assistant.module#AssistantPageModule' },
   { path: '**', loadChildren: './error/error.module#ErrorPageModule' },
 ];
