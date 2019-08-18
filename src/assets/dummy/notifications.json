@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "type" : "WC",
+    "title" : "Welcome to Doctors App",
+    "description" : "Have a pleast stay here.",
+    "time" : 1566112537749
+  },
+  {
+    "id": 2,
+    "type" : "COMMENT",
+    "title" : "Comment",
+    "description" : "Someone has commented on your post.",
+    "time" : 1566112697934
+  }
+]

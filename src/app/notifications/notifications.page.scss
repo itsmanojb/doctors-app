@@ -1,0 +1,73 @@
+.content {
+  height: calc(100vh - 116px);
+}
+
+.list-wrapper {
+  margin-bottom: 0;
+  padding: 0;
+
+  u {
+    text-decoration-style: dotted;
+    text-decoration-color: #ccc
+  }
+}
+
+ion-item {
+  --ion-item-background: var(--ion-background-color);
+  transition: height 0.25s ease-out;
+  height: auto;
+
+  &.deleted {
+    height: 0;
+    // visibility: hidden;
+    // display: none
+    will-change: height;
+  }
+}
+
+ion-label {
+  position: relative;
+
+  h2 {
+    color: var(--text-color)
+  }
+
+  small {
+    position: absolute;
+    right: 0;
+    top: 3px;
+    color: var(--ion-color-medium-shade);
+  }
+
+  em {
+    font-weight: 600;
+    font-style: normal
+  }
+}
+
+.no-cat-notif {
+  height: calc(100vh - 160px);
+  display: grid;
+  align-content: center;
+  justify-content: center;
+
+  >div {
+    background: url('../../assets/icon/185-tissue-roll.png') no-repeat;
+    background-size: 90px;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    padding-bottom: 30px;
+    background-position: 40px 15px;
+
+    &::after {
+      content: 'All clear here.';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+
+    }
+  }
+}

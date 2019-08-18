@@ -1,0 +1,73 @@
+<ion-header class="flat bordered">
+  <ion-toolbar class="trans">
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" (click)="closeSettings()" class="btn__modal btn__back trans-icon">
+        <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="trans-title" text-center>Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()" class="btn__modal btn__submit" disabled>
+        Save
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form class="form-wrapper">
+    <ion-list class="mb-0">
+      <ion-list-header class="mb-0">
+        <ion-label>SMS Notifications Permission</ion-label>
+      </ion-list-header>
+      <ion-item class="py-0">
+        <ion-label>Allow to get all SMS</ion-label>
+        <ion-toggle data-key="SMSALL" slot="end"></ion-toggle>
+      </ion-item>
+    </ion-list>
+    <ion-list class="py-0">
+      <ion-list-header class="mb-0">
+        <ion-label>Push Notifications Permission</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Allow for Appointments</ion-label>
+        <ion-toggle data-key="APPOINTMENTS" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Allow for Deals</ion-label>
+        <ion-toggle data-key="DEALS" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Allow for Messages</ion-label>
+        <ion-toggle data-key="MESSAGES" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Allow for EHR</ion-label>
+        <ion-toggle data-key="EHR" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Allow for Community</ion-label>
+        <ion-toggle data-key="COMMUNITY" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Allow for News</ion-label>
+        <ion-toggle data-key="NEWS" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Allow for Educational Videos</ion-label>
+        <ion-toggle data-key="EDVIDEOS" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Allow for Ask Our Doctors</ion-label>
+        <ion-toggle data-key="ASKOURDOCTORS" slot="end"></ion-toggle>
+      </ion-item>
+    </ion-list>
+    <!-- <div class="btn-wrapper fixed__bottom">
+      <button class="btn" (click)="resetSettings()">
+        Reset
+      </button>
+      <button class="btn btn-fill primary" (click)="saveSettings()">
+        Save
+      </button>
+    </div> -->
+  </form>
+</ion-content>
