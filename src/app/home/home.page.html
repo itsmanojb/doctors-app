@@ -377,7 +377,7 @@
   <section>
     <ion-label class="section__title" slot="start">
       Recent Appointments
-      <ion-text class="more-link" text-right (click)="gotoAppointments()">See All
+      <ion-text class="more-link" text-right  routerLink="/schedule" routerDirection="forward">See All
       </ion-text>
     </ion-label>
     <div class="overscroll-wrapper">
@@ -450,48 +450,6 @@
             <img src="//via.placeholder.com/200x150" alt="...">
           </div>
           <span class="title">Lorem ipsum dolor sit amet consectetur.</span>
-        </div>
-      </ion-slide>
-    </ion-slides>
-  </section>
-  <!-- Other Apps -->
-  <section>
-    <ion-label class="section__title" slot="start">
-      Other Services
-    </ion-label>
-    <ion-slides class="slides__dashboard featured caption__top" [options]="slideOpts" pager="true">
-      <ion-slide>
-        <div class="slides__featured">
-          <div class="banner masked" style="background-image: url('assets/images/patient-app.jpg')">
-            <div class="main-text">Patient App</div>
-            <div class="subtext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis, quod.</div>
-          </div>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div class="slides__featured">
-          <div class="banner masked" style="background-image: url('assets/images/business-app.jpg')">
-            <div class="main-text">Business APP</div>
-            <div class="subtext">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-          </div>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div class="slides__featured">
-          <div class="banner masked" style="background-image: url('assets/images/sales-app.jpg')">
-            <div class="main-text">Sales App</div>
-            <div class="subtext">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore corrupti et illo.
-            </div>
-          </div>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div class="slides__featured">
-          <div class="banner masked" style="background-image: url('assets/images/news-admin-app.jpg')">
-            <div class="main-text">News Admin App</div>
-            <div class="subtext">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore corrupti et illo.
-            </div>
-          </div>
         </div>
       </ion-slide>
     </ion-slides>

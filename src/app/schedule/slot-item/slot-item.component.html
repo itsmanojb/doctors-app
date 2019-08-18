@@ -1,0 +1,12 @@
+<div class="appo__item" (click)="itemClicked()" [ngClass]="{ 'clinic' : clinicAppo, 'telemed' : telemedAppo }">
+  <div class="appo__time">
+    {{appoTime}}
+  </div>
+  <div class="appo__details">
+    <p class="title">
+      {{patientName}}
+    </p>
+    <small *ngIf="clinicAppo">{{'at ' + clinic}}</small>
+    <small *ngIf="telemedAppo">{{clinic}}</small>
+  </div>
+</div>

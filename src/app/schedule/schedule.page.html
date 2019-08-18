@@ -1,0 +1,73 @@
+<ion-header class="flat">
+  <ion-toolbar class="colored">
+    <ion-buttons slot="start">
+      <ion-button color="light" routerDirection="forward" routerLink="/account">
+        <ion-icon src="assets/svg/md-contact.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" text-center>Schedule</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="initSearch()">
+        <ion-icon src="assets/svg/ios-search.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <section class="calendar colored__header" #scheduleCalendar>
+    <div class="calendar__header">
+      <button class="calendar__btn prev">
+        <ion-icon src="assets/svg/ios-arrow-back.svg"></ion-icon>
+      </button>
+      <div class="calendar__header__label"></div>
+      <button class="calendar__btn next">
+        <ion-icon src="assets/svg/ios-arrow-forward.svg"></ion-icon>
+      </button>
+    </div>
+    <div class="calendar__week">
+      <span>Mo</span>
+      <span>Tu</span>
+      <span>We</span>
+      <span>Th</span>
+      <span>Fr</span>
+      <span>Sa</span>
+      <span>Su</span>
+    </div>
+    <div class="calendar__content">
+      <div class="calendar__body"></div>
+    </div>
+  </section>
+  <section class="appointments">
+    <div class="appo__loading" *ngIf="appoLoading; else appoLoaded">
+      <ion-spinner name="lines"></ion-spinner>
+    </div>
+    <ng-template #appoLoaded>
+      <div class="appo__wrapper" *ngIf="!appoLoadError && !noAppos">
+        <app-slot-item *ngFor="let slot of appointments" [appo]="slot" (appoSelected)="showAppoInfo(slot)"></app-slot-item>
+      </div>
+      <div class="appo__none" *ngIf="noAppos">
+        No appointments
+      </div>
+    </ng-template>
+  </section>
+  <!-- hour__slot classes: unavailable , full, free, collapsed -->
+  <!-- appointment card classes: deal, clinic, telemed -->
+  <!-- <section class="timeslots">
+    <div class="timeslots__wrapper">
+      <div class="hour__slot" *ngFor="let slot of slots">
+        <div class="time">
+          {{slot.hour}} {{slot.ampm}}
+        </div>
+        <div class="half__hour__slot">
+          <div class="appointment card deal" (click)="openBottomSheet()"></div>
+        </div>
+        <div class="half__hour__slot" [class.two-slots]="1">
+          <div class="appointment card"></div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+</ion-content>
+<ion-footer class="flat">
+  <footer-tabs></footer-tabs>
+</ion-footer>

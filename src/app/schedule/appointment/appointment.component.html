@@ -1,0 +1,76 @@
+<ion-list class="mb-0">
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img src="assets/images/avatar.jpg" alt="">
+    </ion-avatar>
+    <ion-label>
+      <h2>{{fullName()}}</h2>
+      <ion-text color="medium">
+        <h3 class="separated-texts"> <span>{{age()}}</span> <span>{{getAddress()}}</span></h3>
+      </ion-text>
+    </ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>
+      <ion-text color="medium">Appointment Type</ion-text>
+    </ion-label>
+    <ion-badge slot="end" color="warning" *ngIf="clinicAppo">Clinic</ion-badge>
+    <ion-badge slot="end" color="secondary" *ngIf="telemedAppo">Telemedicine</ion-badge>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label color="medium">Location</ion-label>
+    <ion-label slot="end" text-right>{{appo.location}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label color="medium">Scheduled On</ion-label>
+    <ion-label slot="end" text-right>{{getAppoTime()}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label color="medium">Duration</ion-label>
+    <ion-label slot="end" text-right color="primary">{{appo.duration}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset" *ngIf="telemedAppo">
+    <ion-label color="medium">Attachments</ion-label>
+    <ion-label slot="end" text-right>{{appo.media.length > 0 ? appo.media.length : 'n/a'}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset" *ngIf="telemedAppo && appoSubject">
+    <ion-label color="medium">Subject (CC)</ion-label>
+    <ion-label slot="end" text-right>{{appoSubject}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset" *ngIf="telemedAppo && appoDesc">
+    <ion-label text-wrap>
+      <ion-text color="medium">Description (HPI)</ion-text>
+      <ion-text color="dark">
+        <p>{{appoDesc}}</p>
+      </ion-text>
+    </ion-label>
+  </ion-item>
+  <ion-item lines="inset" *ngIf="clinicAppo">
+    <ion-label color="medium">Insurances</ion-label>
+    <ion-label slot="end" text-right>N/A</ion-label>
+  </ion-item>
+  <ion-item lines="inset" *ngIf="clinicAppo">
+    <ion-label text-wrap>
+      <ion-text color="medium">Branch Address</ion-text>
+      <ion-text color="dark">
+        <p>{{appo.locationFull}} <span class="d-block">{{appo.phone}}</span></p>
+      </ion-text>
+    </ion-label>
+    <ion-icon slot="end" ios="md-locate" md="md-locate"></ion-icon>
+  </ion-item>
+</ion-list>
+
+<div class="appointment-actions" *ngIf="telemedAppo">
+    <small>Button will active 10 min before scheduled time</small>
+    <button class="main" [disabled]="shouldEnableButton()">Start </button>
+</div>
+<div class="appointment-actions" *ngIf="clinicAppo">
+  <button *ngIf="isFullfilled()">Add to EHR</button>
+  <button class="main" *ngIf="!isFullfilled()">Scan QR</button>
+  <!-- <button  disabled>No show</button> -->
+</div>
+<!-- <div class="appointment-actions" *ngIf="dealAppo">
+  <button class="">EHR</button>
+  <button class="main"></button>
+  <button class="">Refer</button>
+</div> -->

@@ -1,0 +1,37 @@
+[
+  {
+    "id" : 1,
+    "consultType" : "visit",
+    "userName" : "User Name",
+    "dob" : "8/18/1988",
+    "address" : {
+      "line1" : "",
+      "city" : "city",
+      "state": "state",
+      "zip" : 31212
+    },
+    "location" : "Place",
+    "locationFull" : "",
+    "phone" : "",
+    "time" : "12:30 PM",
+    "desc" : "",
+    "media" : [],
+    "duration" : "30 min",
+    "subject" : "Check Up"
+  },
+  {
+    "id" : 2,
+    "consultType" : "telemed",
+    "userName" : "User Name",
+    "address" : null,
+    "dob" : "10/31/1991",
+    "location" : "Place 2",
+    "locationFull" : "",
+    "phone" : "",
+    "time" : "1:30 PM",
+    "desc" : "",
+    "media" : [],
+    "duration" : "30 min",
+    "subject" : "Check Up"
+  }
+]

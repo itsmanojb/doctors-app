@@ -1,0 +1,169 @@
+.timeslots {
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 2rem var(--card-padding);
+
+  .timeslots__wrapper {
+
+    .hour__slot {
+      padding-left: 60px;
+      position: relative;
+      margin: 0;
+      transition: all 0.3s ease-out;
+
+      .time {
+        position: absolute;
+        left: 0;
+        top: -8px;
+        font-size: 14px;
+        height: 16px;
+        color: var(--text-color);
+        text-transform: uppercase;
+        width: 60px;
+        background: #fff;
+        text-align: center;
+      }
+
+      .half__hour__slot {
+        &.two-slots {
+          background: linear-gradient(180deg, transparent, rgb(235, 235, 235), transparent);
+          background-position: 50%;
+          background-repeat: repeat-x;
+          background-size: auto 1px;
+          min-height: 120px;
+
+          .appointment.card {
+            margin: 4px 0;
+
+            &:first-child {
+              bottom: 50%;
+            }
+
+            &:last-child {
+              top: 50%;
+            }
+          }
+        }
+      }
+
+      &.unavailable {
+        .half__hour__slot {
+          border: none;
+
+          &:last-of-type {
+            display: none
+          }
+        }
+
+        .appointment.card {
+          margin: 0;
+          border-radius: 0;
+          background: repeating-linear-gradient(45deg,
+            transparent,
+            transparent 10px,
+            #fdfdfd 10px,
+            #fdfdfd 20px);
+        }
+      }
+
+      &.full {
+        .half__hour__slot {
+
+          min-height: 150px;
+
+          &:last-of-type {
+            display: none
+          }
+        }
+      }
+
+      &.free {
+        .half__hour__slot {
+          min-height: 80px;
+
+          &:last-of-type {
+            display: none
+          }
+        }
+
+        .appointment.card {
+          background: rgba(242, 242, 242, 0.32);
+        }
+      }
+
+      &.collapsed {
+        min-height: 1rem;
+        margin: 1rem 0;
+        transition: all 0.3s ease-out;
+
+        div:not(.time) {
+          display: none
+        }
+
+        &::after {
+          content: '';
+          background: var(--divider-line-color);
+          height: 1px;
+          position: absolute;
+          left: 60px;
+          right: 0;
+        }
+
+      }
+
+    }
+
+    .half__hour__slot {
+      min-height: 100px;
+      position: relative;
+      border-top: 1px solid var(--divider-line-color);
+    }
+
+  }
+}
+
+.appointments {
+  padding: 10px 0;
+
+  .appo__wrapper {
+    border-top: 1px solid rgba(232, 232, 232, 0.16);
+    background: white;
+    background: linear-gradient(to top, #e8e8e8 0, white 1px) 0 100px;
+    background-size: 100% 50px;
+    min-height: 35vh;
+  }
+
+  .appo__loading,
+  .appo__none {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 14px;
+    color: var(--ion-color-medium);
+    text-transform: capitalize;
+    user-select: none;
+  }
+}
+
+.appointment {
+  &.card {
+    border-radius: 4px;
+    margin: 4px 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &.clinic {
+    background: rgba(var(--ion-color-primary-rgb), 0.05);
+  }
+
+  &.telemed {
+    background: rgba(var(--ion-color-primary-rgb), 0.15);
+  }
+
+  &.deal {
+    background: rgba(var(--ion-color-primary-rgb), 0.25)
+  }
+}
