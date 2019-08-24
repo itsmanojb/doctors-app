@@ -1,0 +1,87 @@
+$base-color: var(--skel-base-color);
+$shine-color: var(--skel-shine-color);
+$animation-duration: 1.6s;
+$avatar-offset: 52+16;
+$line-width: 500px;
+
+@mixin background-gradient {
+    background-image: linear-gradient(120deg, $base-color 0px, $shine-color 40px, $base-color 80px);
+    background-size: 600px
+}
+
+@keyframes shine-lines {
+    0% {
+        background-position: -100px
+    }
+
+    40%,
+    100% {
+        background-position: $line-width
+    }
+}
+
+@keyframes shine-avatar {
+    0% {
+        background-position: -100px + $avatar-offset
+    }
+
+    40%,
+    100% {
+        background-position: $line-width
+    }
+}
+
+.title {
+    display: inline-block;
+    background: #f2f2f2;
+    height: 12px;
+    width: 35%;
+    margin: 1rem;
+    border-radius: 2px;
+}
+
+.deals__feed.skel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    margin: 0 1rem;
+
+    .deal {
+        background: #fff;
+        box-shadow: var(--box-shadow-varient-2);
+        border-radius: 5px;
+        border-radius: 5px;
+        min-height: 36vh;
+
+        >div {
+
+            &:first-child {
+                height: 120px;
+                width: 100%;
+                background: #eee;
+                border-radius: 5px 5px 0 0;
+            }
+
+            &:last-child {
+                padding: 1rem;
+
+                span {
+
+                    display: inline-block;
+                    animation: shine-lines $animation-duration infinite linear;
+                    @include background-gradient;
+
+                    &:first-child {
+                        height: 10px;
+                        width: 60%
+                    }
+
+                    &:last-child {
+                        height: 8px;
+                        width: 80%
+                    }
+                }
+            }
+        }
+    }
+}

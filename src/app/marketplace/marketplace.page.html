@@ -1,0 +1,46 @@
+<ion-header class="flat">
+  <ion-toolbar class="colored">
+    <ion-buttons slot="start">
+      <ion-button color="light" routerDirection="forward" routerLink="/account">
+        <ion-icon ios="md-contact" md="md-contact"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" text-center>Marketplace</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="initSearch()">
+        <ion-icon ios="ios-search" md="ios-search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Pull to refresh" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+  <app-deals-skeleton *ngIf="feedLoading && !emptyFeed; else dataLoaded"></app-deals-skeleton>
+  <ng-template #dataLoaded>
+    <div class="deals-wrapper">
+      <div class="today-deals" *ngIf="dealsToday.length > 0">
+        <h4>Deals only for Today</h4>
+        <div class="masonry">
+          <app-deal-item *ngFor="let deal of dealsToday" [deal]="deal" [token]="jwt" class="item"
+            (dealSelect)="showDetails(deal)"></app-deal-item>
+        </div>
+      </div>
+      <div class="all-deals" *ngIf="deals.length > 0">
+        <h4>Latest Deals</h4>
+        <div class="masonry">
+          <app-deal-item *ngFor="let deal of deals" [deal]="deal" [token]="jwt" class="item"
+            (dealSelect)="showDetails(deal)"></app-deal-item>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <div class="content__empty" *ngIf="emptyFeed">
+    <div class="no-deals"></div>
+  </div>
+</ion-content>
+<ion-footer class="flat">
+  <footer-tabs></footer-tabs>
+</ion-footer>

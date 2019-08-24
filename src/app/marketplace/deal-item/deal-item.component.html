@@ -1,0 +1,13 @@
+<div class="deal-card" (click)="dealClicked()">
+  <img [src]="dealImage" alt="no image">
+  <div class="deal-info">
+    <h5 class="title">{{deal.title}}</h5>
+    <span class="location">By {{deal.corp.name}}</span>
+    <div class="highlight">
+      <del> {{deal.currency}} {{deal.oldPrice}}</del>
+      <h2>{{deal.currency}} {{deal.newPrice}}
+        <small>{{offPercent}}% off</small>
+      </h2>
+    </div>
+  </div>
+</div>

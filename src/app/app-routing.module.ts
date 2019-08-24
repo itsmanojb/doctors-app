@@ -5,26 +5,42 @@ const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   {
     path: 'welcome',
-    loadChildren: './welcome/welcome.module#WelcomePageModule',
+    loadChildren: './welcome/welcome.module#WelcomePageModule'
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   {
     path: 'register',
-    loadChildren: './register/register.module#RegisterPageModule',
+    loadChildren: './register/register.module#RegisterPageModule'
   },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
-  { path: 'schedule', loadChildren: './schedule/schedule.module#SchedulePageModule' },
+  {
+    path: 'account',
+    loadChildren: './account/account.module#AccountPageModule'
+  },
+  {
+    path: 'schedule',
+    loadChildren: './schedule/schedule.module#SchedulePageModule'
+  },
   { path: 'news', loadChildren: './news/news.module#NewsPageModule' },
-  { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
-  { path: 'assistant', loadChildren: './assistant/assistant.module#AssistantPageModule' },
-  { path: '**', loadChildren: './error/error.module#ErrorPageModule' },
+  {
+    path: 'marketplace',
+    loadChildren: './marketplace/marketplace.module#MarketplacePageModule'
+  },
+  {
+    path: 'notifications',
+    loadChildren: './notifications/notifications.module#NotificationsPageModule'
+  },
+  {
+    path: 'assistant',
+    loadChildren: './assistant/assistant.module#AssistantPageModule'
+  },
+  { path: '**', loadChildren: './error/error.module#ErrorPageModule' }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

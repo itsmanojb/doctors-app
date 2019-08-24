@@ -1,0 +1,23 @@
+<ion-header class="flat">
+  <ion-toolbar class="colored">
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" class="back-button" color="light" (click)="dismissModal()">
+        <ion-icon src="assets/svg/md-arrow-back.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" text-center>{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="initSearch()">
+        <ion-icon src="assets/svg/ios-search.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="map-wrapper">
+  <div class="address-bar">
+    {{address}}
+  </div>
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
+  </agm-map>
+</ion-content>

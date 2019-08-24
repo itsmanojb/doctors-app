@@ -1,0 +1,18 @@
+agm-map {
+  height: calc(100vh - 56px);
+}
+
+.map-wrapper {
+  background: #fff;
+}
+
+.address-bar {
+  background: #fff;
+  padding: 12px 1rem;
+  font-size: 14px;
+  border-top: 1px solid #f2f2f2;
+  position: fixed;
+  width: 100%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}

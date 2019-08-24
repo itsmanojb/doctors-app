@@ -1,0 +1,137 @@
+<ion-content>
+  <div class="content__loading" *ngIf="dataLoading; else dealInfo">
+    <ion-spinner name="lines"></ion-spinner>
+  </div>
+  <ng-template #dealInfo>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button slot="icon-only" class="back-button" color="light" (click)="goBack()">
+          <ion-icon src="assets/svg/md-arrow-back.svg"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <div class="deal-info-wrapper">
+      <div class="deal-header">
+        <img [src]="coverImgSrc" alt="">
+      </div>
+      <div class="deal-item">
+        <div class="item__validity">
+          <div class="time">Deal ends <strong>{{dealExpiry}}</strong></div>
+          <div class="selling" *ngIf="totalInterest !== 0 && buyCount > 0 "><strong>{{buyCount}} sold</strong>/
+            {{totalInterest}}</div>
+          <div class="progress ongoing">
+            <div class="bar" [ngStyle]="{width: sellProgress}"></div>
+          </div>
+        </div>
+        <div class="item__header">
+          <h3>{{deal.dealtexts.title}}</h3>
+          <p>at {{deal.corpextra.branch.branchName}}</p>
+        </div>
+        <div class="item__value">
+          <div class="price">
+            <span>{{deal.dealadd.currency.currname}} {{deal.dealPrice}}</span>
+            <del>{{deal.mupprice}} </del>
+          </div>
+          <div class="action disabled">
+            <button class="btn btn-outline">View Slots</button>
+            <button class="btn btn-fill primary">Buy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="deal-item deal-stats">
+        <div class="comments clickable" (click)="showComments(comments)">
+          <strong>{{commentCount === 0? 'No' : commentCount}} </strong>
+          <span>Comments</span>
+        </div>
+        <div class="ceritification">
+          <strong>DocsApp</strong>
+          <span>Assured</span>
+        </div>
+        <div class="ratings">
+          <strong>{{ deal.extra3.avrating.toFixed(1) + '/ 5'}}</strong>
+          <span>{{deal.extra3.raters === 0? 'No' : deal.extra3.raters}} Ratings</span>
+        </div>
+      </div>
+      <div class="deal-item">
+        <div class="item__header pb-0">
+          <h3>Description</h3>
+        </div>
+        <div class="item__content">
+          <p>{{deal.dealtexts.fineprint}}</p>
+          <p>{{deal.dealtexts.desctext}}</p>
+        </div>
+      </div>
+      <div class="deal-item" *ngIf="deal && deal.media.length > 0">
+        <div class="item__header pb-0">
+          <h3>Media</h3>
+        </div>
+        <div class="item__gallery">
+          <div class="media clickable" *ngFor="let item of deal.media; let i = index"
+            (click)="showGallery(deal.media, i)">
+            <app-image [mediaId]="item.tnrefId" [isVideo]="item.mime.startsWith('video')" [token]="jwt"
+              nospinner="true"></app-image>
+          </div>
+        </div>
+      </div>
+      <div class="deal-item" [class.loading]="commentLoading" #comments>
+        <ion-spinner name="dots" *ngIf="commentLoading"></ion-spinner>
+        <div class="item__header" *ngIf="!commentLoading" [class.pb-0]="commentCount > 0">
+          <h3> {{commentCount === 0 ? 'No' : commentCount}} Comments</h3>
+        </div>
+        <ion-list class="py-0" [class.top-three]="!fullComments" *ngIf="!commentLoading && commentCount > 0">
+          <ion-item class="review" lines="full" *ngFor="let item of allComments">
+            <ion-avatar>
+              <img src="assets/images/user.png" alt="..">
+            </ion-avatar>
+            <ion-label text-wrap>
+              <h6><span>{{item.handle}}</span> <small>{{item.msgwhen | humanDate}}</small> </h6>
+              <p>{{item.usermsg}}</p>
+            </ion-label>
+          </ion-item>
+          <!-- <ion-item (click)="fullComments = true" class="more-comment" *ngIf="!fullComments"> -->
+          <ion-item (click)="fullComments = true" class="more-comment">
+            <ion-label>{{ fullComments ? 'Show Less' : 'Show All'}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="deal-item">
+        <div class="item__header pb-0">
+          <h3>More </h3>
+        </div>
+        <ion-list class="py-0">
+          <ion-item class="other-info" lines="inset" (click)="showShareSheet()">
+            <ion-label>
+              Share this deal
+              <ion-text color="medium">
+                <p>
+                  Facebook, Linkedin, Twitter, Google+, Skype
+                </p>
+              </ion-text>
+            </ion-label>
+          </ion-item>
+          <ion-item class="other-info" detail lines="inset" (click)="exploreDeals()" *ngIf="!deepLevel">
+            <ion-label>
+              Other Available Deals
+            </ion-label>
+          </ion-item>
+          <ion-item class="other-info" [detail]="!initiatingChat" lines="inset" *ngIf="!deepLevel"
+            (click)="initDealChat()">
+            <ion-label>Contact Business Support</ion-label>
+            <ion-thumbnail slot="end" class="list-item-loader" *ngIf="initiatingChat"><img
+                src="assets/images/spinner.gif">
+            </ion-thumbnail>
+          </ion-item>
+          <ion-item class="other-info" detail lines="inset" *ngIf="!deepLevel" (click)="showLocation()">
+            <ion-label>
+              Locate Us
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ng-template>
+</ion-content>
+<ion-footer class="flat">
+  <footer-tabs></footer-tabs>
+</ion-footer>

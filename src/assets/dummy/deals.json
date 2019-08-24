@@ -1,0 +1,233 @@
+[{
+  "id": 1,
+  "title": "Today's Top Deal",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "details": "",
+  "oldPrice": 14.95,
+  "newPrice": 7.95,
+  "currency": "$",
+  "media": [{
+    "id": 1,
+    "url": "//via.placeholder.com/200x150",
+    "isVideo": false
+  }, {
+    "id": 2,
+    "url": "//via.placeholder.com/200",
+    "isVideo": false
+  }],
+  "corp": {
+    "id": 1,
+    "name": "Russel Ltd",
+    "address": "5543 Veum Brook Suite 684, Brooklyn, NY 11245",
+    "location": {
+      "lat": 37.698038,
+      "long": -114.480294
+    }
+  },
+  "stocks": {
+    "available": 10,
+    "total": 100
+  },
+  "createdOn": 1566498600000,
+  "endsOn": 1572546599000,
+  "ratings": {
+    "totalRatings": 20,
+    "score": 3.5
+  },
+  "reviews": [],
+  "isCertified": false
+}, {
+  "id": 2,
+  "title": "Grab this Deal",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit euismod in pellentesque massa placerat.",
+  "details": "",
+  "oldPrice": 39.99,
+  "newPrice": 7.99,
+  "currency": "$",
+  "media": [{
+    "id": 1,
+    "url": "//via.placeholder.com/200x180",
+    "isVideo": false
+  }],
+  "corp": {
+    "id": 1,
+    "name": "Lowe-Parisian",
+    "address": "483 Litzy Isle, Forsyth, MT 59327",
+    "location": {
+      "lat": 31.485014,
+      "long": -94.181212
+    }
+  },
+  "stocks": {
+    "available": 10,
+    "total": 100
+  },
+  "createdOn": 1566498600000,
+  "endsOn": 1572546599000,
+  "ratings": {
+    "totalRatings": 37,
+    "score": 3.5
+  },
+  "reviews": [],
+  "isCertified": false
+}, {
+  "id": 3,
+  "title": "Mindblowing Deal",
+  "description": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "details": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam",
+  "oldPrice": 100,
+  "newPrice": 80,
+  "currency": "$",
+  "media": [{
+    "id": 1,
+    "url": "//via.placeholder.com/200x220",
+    "isVideo": false
+  }],
+  "corp": {
+    "id": 1,
+    "name": "Windler-Abernathy",
+    "address": "1713 Nicolas Views Morris, AL 35116",
+    "location": {
+      "lat": 25.452751,
+      "long": -116.878152
+    }
+  },
+  "stocks": {
+    "available": 10,
+    "total": 100
+  },
+  "createdOn": 1566498600000,
+  "endsOn": 1572546599000,
+  "ratings": {
+    "totalRatings": 20,
+    "score": 3.5
+  },
+  "reviews": [{
+    "id": 1,
+    "username": "",
+    "comment": "",
+    "rated": 0
+  }],
+  "isCertified": false
+}, {
+  "id": 4,
+  "title": "Just Another Deal",
+  "description": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "details": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam",
+  "oldPrice": 220,
+  "newPrice": 200,
+  "currency": "$",
+  "media": [{
+    "id": 1,
+    "url": "//via.placeholder.com/250x220",
+    "isVideo": false
+  }, {
+    "id": 2,
+    "url": "//via.placeholder.com/250x200",
+    "isVideo": false
+  }],
+  "corp": {
+    "id": 1,
+    "name": "Mills-Huels",
+    "address": "46413 Shields Land Apt. 080 Hakalau, HI 96710",
+    "location": {
+      "lat": 42.424931,
+      "long": -112.885742
+    }
+  },
+  "stocks": {
+    "available": 10,
+    "total": 100
+  },
+  "createdOn": 1566498600000,
+  "endsOn": 1572546599000,
+  "ratings": {
+    "totalRatings": 20,
+    "score": 3.5
+  },
+  "reviews": [{
+    "id": 1,
+    "username": "",
+    "comment": "",
+    "rated": 0
+  }],
+  "isCertified": false
+}, {
+  "id": 5,
+  "title": "Second Deal",
+  "description": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "details": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam",
+  "oldPrice": 34,
+  "newPrice": 18,
+  "currency": "$",
+  "media": [{
+    "id": 1,
+    "url": "//via.placeholder.com/180x120",
+    "isVideo": false
+  }],
+  "corp": {
+    "id": 1,
+    "name": "Russel Ltd",
+    "address": "5543 Veum Brook Suite 684, Brooklyn, NY 11245",
+    "location": {
+      "lat": 37.698038,
+      "long": -114.480294
+    }
+  },
+  "stocks": {
+    "available": 10,
+    "total": 100
+  },
+  "createdOn": 1566498600000,
+  "endsOn": 1572546599000,
+  "ratings": {
+    "totalRatings": 20,
+    "score": 3.5
+  },
+  "reviews": [{
+    "id": 1,
+    "username": "",
+    "comment": "",
+    "rated": 0
+  }],
+  "isCertified": false
+}, {
+  "id": 6,
+  "title": "Better Deal",
+  "description": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "details": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam",
+  "oldPrice": 234,
+  "newPrice": 118,
+  "currency": "$",
+  "media": [{
+    "id": 1,
+    "url": "//via.placeholder.com/180x185",
+    "isVideo": false
+  }],
+  "corp": {
+    "id": 1,
+    "name": "Lehner Inc",
+    "address": "491 Windler Plain Apt. 556 Demarest, NJ 07627",
+    "location": {
+      "lat": 47.613543,
+      "long": -106.567409
+    }
+  },
+  "stocks": {
+    "available": 10,
+    "total": 100
+  },
+  "createdOn": 1566498600000,
+  "endsOn": 1572546599000,
+  "ratings": {
+    "totalRatings": 20,
+    "score": 3.5
+  },
+  "reviews": [{
+    "id": 1,
+    "username": "",
+    "comment": "",
+    "rated": 0
+  }],
+  "isCertified": false
+}]
