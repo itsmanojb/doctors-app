@@ -1,0 +1,76 @@
+<ion-header class="flat">
+  <ion-toolbar class="colored">
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" class="back-button" color="light" (click)="goBack()">
+        <ion-icon src="assets/svg/md-arrow-back.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" text-center>Wallet</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon ios="md-more" md="md-more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="header__extended">
+    <div class="total">
+      <div class="label">Total balance</div>
+      <div class="value">$32,058.98</div>
+      <div class="balance">+ $3968,00</div>
+    </div>
+  </div>
+  <section class="transactions">
+    <ion-label class="section__title" slot="start">
+      Recent Transactions
+      <ion-text class="more-link" text-right>View All</ion-text>
+    </ion-label>
+    <ion-list class="transactions__list">
+      <ion-item lines="inset">
+        <ion-avatar slot="start">
+          <img src="https://picsum.photos/400/320?image=1027">
+        </ion-avatar>
+        <ion-label>
+          <ion-text>
+            <h3>Dr. Somename</h3>
+          </ion-text>
+          <p>Speciality, Location</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img src="https://picsum.photos/400/320?image=996">
+        </ion-avatar>
+        <ion-label>
+          <ion-text>
+            <h3>Dr. Somename</h3>
+          </ion-text>
+          <p>Speciality, Location</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img src="https://picsum.photos/400/320?image=996">
+        </ion-avatar>
+        <ion-label>
+          <ion-text>
+            <h3>Dr. Somename</h3>
+          </ion-text>
+          <p>Speciality, Location</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </section>
+
+  <!-- <div class="toolbar__bottom__fixed">
+    <div class="toolbar-wrapper animated bounceInUp">
+      <button>
+        Buy More
+      </button>
+    </div>
+  </div> -->
+</ion-content>
+<ion-footer class="flat">
+  <footer-tabs></footer-tabs>
+</ion-footer>

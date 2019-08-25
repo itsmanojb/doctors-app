@@ -21,7 +21,10 @@ const routes: Routes = [
     path: 'schedule',
     loadChildren: './schedule/schedule.module#SchedulePageModule'
   },
-  { path: 'news', loadChildren: './news/news.module#NewsPageModule' },
+  {
+    path: 'news',
+    loadChildren: './news/news.module#NewsPageModule'
+  },
   {
     path: 'marketplace',
     loadChildren: './marketplace/marketplace.module#MarketplacePageModule'
@@ -34,6 +37,10 @@ const routes: Routes = [
     path: 'assistant',
     loadChildren: './assistant/assistant.module#AssistantPageModule'
   },
+  {
+    path: 'wallet',
+    loadChildren: './wallet/wallet.module#WalletPageModule'
+  },
   { path: '**', loadChildren: './error/error.module#ErrorPageModule' }
 ];
 
@@ -43,4 +50,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
