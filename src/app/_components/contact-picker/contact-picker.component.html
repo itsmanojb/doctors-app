@@ -1,0 +1,69 @@
+<ion-header class="flat bordered">
+  <ion-toolbar class="trans">
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" (click)="closePicker()" class="btn__modal btn__cancel">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+    <ion-title text-center>Choose {{contactType}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only" class="btn__modal btn__submit" (click)="proceed()" [disabled]="!canProceed">
+        Done
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content__loading" *ngIf="dataLoading; else dataLoaded">
+    <ion-spinner name="lines"></ion-spinner>
+  </div>
+  <ng-template #dataLoaded>
+    <ion-searchbar placeholder="Search in list" mode="ios" *ngIf="noFilter" (ionChange)="search($event)"
+      (ionClear)="resetSearch()"></ion-searchbar>
+    <div class="main-list" *ngIf="searchInitated; else ContactList">
+      <ion-list class="mb-0 animated">
+        <ion-list-header class="sticky-header">
+          <ion-label>Showing {{filteredContacts.length}} {{ filteredContacts.length > 1? 'Results' : 'Result' }}
+          </ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let name of filteredContacts" lines="inset" (click)="doSelection(name)"
+          [class.selected]="isSelected(name.id)">
+          <ion-avatar slot="start">
+            <img [src]="name.photo" alt="">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{name.name}}</h2>
+            <h3 *ngIf="contactType === 'Doctor'">{{name.speciality}}</h3>
+            <h3 *ngIf="contactType === 'Patient'">{{name.age}}, {{name.sex}}</h3>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <ng-template #ContactList>
+      <div class="alpha-scroll-list">
+        <button (click)="selectLetter($event)" value="*">*</button>
+        <button (click)="selectLetter($event)" [disabled]="alpha.disabled" [value]="alpha.letter"
+          *ngFor="let alpha of contactAlphabet">{{alpha.letter}}</button>
+      </div>
+      <div class="main-list">
+        <ion-list *ngFor="let contact of contacts" class="mb-0 animated"
+          [ngClass]="(showLetter === contact[0]) || showAll ? 'd-block' : 'd-none' ">
+          <ion-list-header class="sticky-header">
+            <ion-label>{{contact[0]}}</ion-label>
+          </ion-list-header>
+          <ion-item *ngFor="let name of contact[1]" lines="inset" (click)="doSelection(name)"
+            [class.selected]="isSelected(name.id)">
+            <ion-avatar slot="start">
+              <img [src]="name.photo" alt="">
+            </ion-avatar>
+            <ion-label>
+              <h2>{{name.name}}</h2>
+              <h3 *ngIf="contactType === 'Doctor'">{{name.speciality}}</h3>
+              <h3 *ngIf="contactType === 'Patient'">{{name.age}}, {{name.sex}}</h3>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-template>
+  </ng-template>
+</ion-content>

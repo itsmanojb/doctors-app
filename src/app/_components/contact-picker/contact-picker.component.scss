@@ -1,0 +1,92 @@
+.alpha-scroll-list {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  z-index: 10;
+  margin: -32vh 0 0;
+  padding: 0;
+  display: grid;
+  height: 64vh;
+  text-align: center;
+  align-items: center;
+  width: 20px;
+  /* background: #fff; */
+  cursor: pointer;
+
+  button {
+    background: transparent;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ion-color-primary);
+
+    &:first-of-type {
+      font-size: 20px;
+      line-height: 2px;
+    }
+
+    &:focus {
+      outline: none
+    }
+
+    &:disabled {
+      opacity: 0.45;
+      pointer-events: none
+    }
+  }
+}
+
+.sticky-header {
+  margin: 0;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+  background: #fcfcfc;
+  min-height: 30px;
+  font-weight: 500;
+}
+
+ion-item {
+  // text-transform: capitalize;
+  cursor: pointer;
+
+  &.selected {
+    ion-avatar {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: #fff;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        -webkit-mask: url('../../../assets/svg/ios-checkmark-circle.svg') no-repeat center;
+        mask: url('../../../assets/svg/ios-checkmark-circle.svg') no-repeat center;
+        -webkit-mask-size: 50px;
+        mask-size: 50px;
+        background-color: var(--ion-color-primary);
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+    }
+  }
+
+  h3 {
+    color: var(--text-muted-color)
+  }
+}

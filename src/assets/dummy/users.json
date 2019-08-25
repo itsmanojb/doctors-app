@@ -3,7 +3,7 @@
     "index": 0,
     "picture": "http://placehold.it/32x32",
     "age": 31,
-    "sex": "male",
+    "sex": "Male",
     "name": {
       "first": "Pauline",
       "last": "Forbes"
@@ -22,7 +22,7 @@
     "index": 1,
     "picture": "http://placehold.it/32x32",
     "age": 46,
-    "sex": "male",
+    "sex": "Male",
     "name": {
       "first": "Rosalinda",
       "last": "Gillespie"
@@ -41,7 +41,7 @@
     "index": 2,
     "picture": "http://placehold.it/32x32",
     "age": 43,
-    "sex": "female",
+    "sex": "Female",
     "name": {
       "first": "Alston",
       "last": "Turner"
@@ -60,7 +60,7 @@
     "index": 3,
     "picture": "http://placehold.it/32x32",
     "age": 27,
-    "sex": "male",
+    "sex": "Male",
     "name": {
       "first": "Cotton",
       "last": "Wooten"
@@ -79,7 +79,7 @@
     "index": 4,
     "picture": "http://placehold.it/32x32",
     "age": 48,
-    "sex": "female",
+    "sex": "Female",
     "name": {
       "first": "Kerri",
       "last": "Cooley"
@@ -98,7 +98,7 @@
     "index": 5,
     "picture": "http://placehold.it/32x32",
     "age": 25,
-    "sex": "female",
+    "sex": "Female",
     "name": {
       "first": "Stein",
       "last": "Lott"
@@ -117,7 +117,7 @@
     "index": 6,
     "picture": "http://placehold.it/32x32",
     "age": 25,
-    "sex": "male",
+    "sex": "Male",
     "name": {
       "first": "Rodgers",
       "last": "Anthony"
@@ -138,7 +138,7 @@
     "balance": "$3,080.89",
     "picture": "http://placehold.it/32x32",
     "age": 31,
-    "sex": "male",
+    "sex": "Male",
     "name": {
       "first": "Sanders",
       "last": "Murray"
@@ -161,7 +161,7 @@
     "balance": "$2,133.88",
     "picture": "http://placehold.it/32x32",
     "age": 43,
-    "sex": "male",
+    "sex": "Male",
     "name": {
       "first": "Margret",
       "last": "Stevenson"
@@ -184,7 +184,7 @@
     "balance": "$2,052.28",
     "picture": "http://placehold.it/32x32",
     "age": 36,
-    "sex": "female",
+    "sex": "Female",
     "name": {
       "first": "Sykes",
       "last": "Sparks"
@@ -207,7 +207,7 @@
     "balance": "$1,206.14",
     "picture": "http://placehold.it/32x32",
     "age": 42,
-    "sex": "male",
+    "sex": "Male",
     "name": {
       "first": "Augusta",
       "last": "Rutledge"
@@ -230,7 +230,7 @@
     "balance": "$1,772.48",
     "picture": "http://placehold.it/32x32",
     "age": 46,
-    "sex": "female",
+    "sex": "Female",
     "name": {
       "first": "Sears",
       "last": "Hoffman"
@@ -253,7 +253,7 @@
     "balance": "$2,148.56",
     "picture": "http://placehold.it/32x32",
     "age": 32,
-    "sex": "male",
+    "sex": "Male",
     "name": {
       "first": "Katelyn",
       "last": "Brock"
@@ -276,7 +276,7 @@
     "balance": "$1,124.48",
     "picture": "http://placehold.it/32x32",
     "age": 30,
-    "sex": "male",
+    "sex": "Male",
     "name": {
       "first": "Santiago",
       "last": "Peterson"
@@ -299,7 +299,7 @@
     "balance": "$2,138.08",
     "picture": "http://placehold.it/32x32",
     "age": 34,
-    "sex": "female",
+    "sex": "Female",
     "name": {
       "first": "Ava",
       "last": "Stevens"
