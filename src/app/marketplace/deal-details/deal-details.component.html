@@ -6,7 +6,7 @@
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-button slot="icon-only" class="back-button" color="light" (click)="goBack()">
-          <ion-icon src="assets/svg/md-arrow-back.svg"></ion-icon>
+          <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
@@ -24,16 +24,16 @@
           </div>
         </div>
         <div class="item__header">
-          <h3>{{deal.dealtexts.title}}</h3>
-          <p>at {{deal.corpextra.branch.branchName}}</p>
+          <h3>{{deal.title}}</h3>
+          <p>Sold by {{deal.corp.name}}</p>
         </div>
         <div class="item__value">
           <div class="price">
-            <span>{{deal.dealadd.currency.currname}} {{deal.dealPrice}}</span>
-            <del>{{deal.mupprice}} </del>
+            <span>{{deal.currency}} {{deal.newPrice}}</span>
+            <del>{{deal.oldPrice}} </del>
           </div>
-          <div class="action disabled">
-            <button class="btn btn-outline">View Slots</button>
+          <div class="action">
+            <button class="btn btn-outline">Add To Cart</button>
             <button class="btn btn-fill primary">Buy</button>
           </div>
         </div>
@@ -42,15 +42,15 @@
       <div class="deal-item deal-stats">
         <div class="comments clickable" (click)="showComments(comments)">
           <strong>{{commentCount === 0? 'No' : commentCount}} </strong>
-          <span>Comments</span>
+          <span>Comment(s)</span>
         </div>
         <div class="ceritification">
           <strong>DocsApp</strong>
           <span>Assured</span>
         </div>
         <div class="ratings">
-          <strong>{{ deal.extra3.avrating.toFixed(1) + '/ 5'}}</strong>
-          <span>{{deal.extra3.raters === 0? 'No' : deal.extra3.raters}} Ratings</span>
+          <strong>{{ deal.ratings.score.toFixed(1) + '/ 5'}}</strong>
+          <span>{{deal.ratings.totalRatings === 0? 'No' : deal.ratings.totalRatings}} Ratings</span>
         </div>
       </div>
       <div class="deal-item">
@@ -58,8 +58,7 @@
           <h3>Description</h3>
         </div>
         <div class="item__content">
-          <p>{{deal.dealtexts.fineprint}}</p>
-          <p>{{deal.dealtexts.desctext}}</p>
+          <p>{{deal.description}}</p>
         </div>
       </div>
       <div class="deal-item" *ngIf="deal && deal.media.length > 0">
@@ -69,28 +68,27 @@
         <div class="item__gallery">
           <div class="media clickable" *ngFor="let item of deal.media; let i = index"
             (click)="showGallery(deal.media, i)">
-            <app-image [mediaId]="item.tnrefId" [isVideo]="item.mime.startsWith('video')" [token]="jwt"
-              nospinner="true"></app-image>
+            <img [src]="item.url" alt="..." *ngIf="!item.isVideo">
           </div>
         </div>
       </div>
       <div class="deal-item" [class.loading]="commentLoading" #comments>
         <ion-spinner name="dots" *ngIf="commentLoading"></ion-spinner>
         <div class="item__header" *ngIf="!commentLoading" [class.pb-0]="commentCount > 0">
-          <h3> {{commentCount === 0 ? 'No' : commentCount}} Comments</h3>
+          <h3> {{commentCount === 0 ? 'No' : commentCount}} Comment(s)</h3>
         </div>
-        <ion-list class="py-0" [class.top-three]="!fullComments" *ngIf="!commentLoading && commentCount > 0">
+        <ion-list class="py-0" [class.top-two]="!fullComments" *ngIf="!commentLoading && commentCount > 0">
           <ion-item class="review" lines="full" *ngFor="let item of allComments">
             <ion-avatar>
               <img src="assets/images/user.png" alt="..">
             </ion-avatar>
             <ion-label text-wrap>
-              <h6><span>{{item.handle}}</span> <small>{{item.msgwhen | humanDate}}</small> </h6>
-              <p>{{item.usermsg}}</p>
+              <h6><span>{{item.user}}</span> <small>{{item.ts | humanDate}}</small> </h6>
+              <p>{{item.comment}}</p>
             </ion-label>
           </ion-item>
           <!-- <ion-item (click)="fullComments = true" class="more-comment" *ngIf="!fullComments"> -->
-          <ion-item (click)="fullComments = true" class="more-comment">
+          <ion-item (click)="fullComments = !fullComments" class="more-comment" *ngIf="allComments.length > 1">
             <ion-label>{{ fullComments ? 'Show Less' : 'Show All'}}</ion-label>
           </ion-item>
         </ion-list>

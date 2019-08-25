@@ -27,10 +27,9 @@ import { DealMapComponent } from '../deal-map/deal-map.component';
   styleUrls: ['./deal-details.component.scss']
 })
 export class DealDetailsComponent implements OnInit {
-  private user: any;
-  jwt: string;
-  dealId: string;
-  ownerId: string;
+
+  dealId: number;
+  ownerId: number;
   address: string;
   deepLevel: boolean;
 
@@ -46,9 +45,7 @@ export class DealDetailsComponent implements OnInit {
 
   dataLoading: boolean;
   deal: any;
-  coverImgSrc: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(
-    'assets/images/placeholder.png'
-  );
+  coverImgSrc: string;
   initiatingChat: boolean;
 
   constructor(
@@ -57,15 +54,13 @@ export class DealDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private data: MarketplaceService,
-    private sanitizer: DomSanitizer,
     private modal: ModalController,
     private toast: ToastController,
     private sheet: ActionSheetController,
     private utility: UtilityService
   ) {
     this.route.queryParams.subscribe(params => {
-      this.dealId = params['id'];
-      this.ownerId = atob(params['owner']);
+      this.dealId = parseInt(params['id']);
       this.deepLevel = params['deep'] || false;
     });
     this.router.events.subscribe((event: Event) => {
@@ -77,24 +72,26 @@ export class DealDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Getting deal details...');
-    this.getUdata();
+    this.getDealDetails();
     // Observable.interval(1000).takeWhile(() => true).subscribe(() => this.getDealEnd());
   }
 
-  async getUdata() {
+  getDealDetails() {
     this.dataLoading = true;
-    this.getDealDetails();
-  }
-
-  async getDealDetails() {
+    const dealData = this.data.getDealDetails(this.dealId);
+    this.deal = dealData;
+    this.title.setTitle(`${this.deal.title} | Deals`);
+    setTimeout(() => {
+      this.dataLoading = false;
+      this.loadCommentCount();
+    }, 2000);
     // this.data
     //   .getDealDetails(this.ownerId, this.jwt, this.dealId)
     //   .toPromise()
     //   .then(res => {
     //     const data = res.json();
     //     console.log(data);
-    //     this.deal = data;
-    //     this.title.setTitle(`${this.deal.dealtexts.title} | Deals`);
+    //     
     //     this.address = `${this.deal.corpextra.branch.demog.address}, ${
     //       this.deal.corpextra.branch.demog.city
     //     }, ${this.deal.corpextra.branch.demog.locstate}, ${
@@ -103,27 +100,18 @@ export class DealDetailsComponent implements OnInit {
     //     // this.fetch.downloadMedia(data.media[0].tnrefId, this.jwt).subscribe(async (res) => {
     //     //   this.coverImgSrc = await this.fetch.getMediaSrc(res);
     //     // });
-    //     this.dataLoading = false;
-    //     this.buyCount = data.extra3.buyers.length;
-    //     this.totalInterest = data.extra3.interested.length;
-    //     const progress =
-    //       this.totalInterest !== 0
-    //         ? (this.buyCount * 100) / this.totalInterest
-    //         : 0;
-    //     this.sellProgress = `${progress}%`;
-    //     this.loadCommentCount();
-    //     this.getDealEnd();
-    //   })
-    //   .catch(err => {
-    //     this.presentToast('Failed to load Deal Details');
-    //     this.title.setTitle('Failed');
-    //     // console.log(err);
-    //   });
+    this.address = this.deal.corp.address;
+    this.buyCount = this.deal.stocks.total - this.deal.stocks.available;
+    const progress = this.buyCount !== 0 ? (this.deal.stocks.available * 100) / this.deal.stocks.total : 0;
+    this.sellProgress = `${progress}%`;
+    this.coverImgSrc = this.deal.media[0].url;
+    this.getDealEnd();
+
   }
 
   getDealEnd() {
     if (this.deal) {
-      let { day, month, year } = this.deal.dtEnd;
+      let { day, month, year } = this.utility.createCymd(this.deal.endsOn);
       // let day = 12, month = 5, year = 2019;
       const monthNames = [
         '',
@@ -166,20 +154,20 @@ export class DealDetailsComponent implements OnInit {
     }
   }
 
-  async loadCommentCount() {
+  loadCommentCount() {
     this.commentLoading = true;
+    this.allComments = this.deal.reviews;
+    this.commentCount = this.deal.reviews.length;
     setTimeout(() => {
-      this.allComments = [];
-      this.commentCount = 0;
       this.commentLoading = false;
     }, 1500);
   }
 
   async showLocation() {
     const obj = {
-      lat: this.deal.dealadd.loc.lat,
-      lon: this.deal.dealadd.loc.lon,
-      name: this.deal.corpextra.branch.branchName,
+      lat: this.deal.corp.location.lat,
+      lon: this.deal.corp.location.long,
+      name: this.deal.corp.name,
       address: this.address
     };
     const modal = await this.modal.create({
@@ -204,49 +192,6 @@ export class DealDetailsComponent implements OnInit {
   async showComments(el: HTMLElement) {
     el.scrollIntoView({ behavior: 'smooth' });
   }
-
-  // async initDealChat() {
-  //   const param = {
-  //     handle: this.user.handle,
-  //     categId: 6,
-  //     lHandles: [this.user.handle, this.deal.corpextra.corpHandle],
-  //     desckeys: ['bizhandle', 'secondName', 'title', 'othhandle'],
-  //     descvals: [this.deal.corpextra.corpHandle, this.deal.corpextra.branch.branchName, this.deal.dealtexts.title, this.user.handle],
-  //     idkeys: ['bizUserId', 'secondId', 'dealId', 'othUserId'],
-  //     idvals: [this.deal.corpextra.corpId, this.deal.corpextra.branch.branchId, this.deal.dealId, this.user.userId],
-  //     chkgroup: false
-  //   }
-  //   this.initiatingChat = true;
-  //   try {
-  //     const res = await this.fetch.postAPICallSecure(patmdEndpoint.InitChat, param, this.jwt, true);
-  //     const data = res[0];
-  //     this.showChatScreen(data);
-  //   } catch (error) {
-  //     this.presentToast('Failed to initiate request.');
-  //   } finally {
-  //     this.initiatingChat = false;
-  //   }
-  // }
-
-  // async showChatScreen(obj: any) {
-  //   const modal = await this.modal.create({
-  //     component: ChatroomComponent,
-  //     backdropDismiss: false,
-  //     cssClass: 'chatroom',
-  //     componentProps: {
-  //       chatType: 'deal',
-  //       chatObj: {
-  //         value: obj,
-  //         handle: this.deal.corpextra.corpHandle,
-  //         title: this.deal.dealtexts.title,
-  //         bizUserId: this.deal.corpextra.corpId,
-  //         dealId: this.deal.dealId,
-  //         secondId: this.deal.corpextra.branch.branchId
-  //       }
-  //     }
-  //   });
-  //   return await modal.present();
-  // }
 
   async hideModal() {
     const modal = await this.modal.getTop();
@@ -322,9 +267,8 @@ export class DealDetailsComponent implements OnInit {
 
   async shareDeal(vendor) {
     const location = window.location.origin;
-    const ownerId = btoa(this.ownerId);
     const text = 'I got a great deal';
-    const link = `${location}/marketplace/deal?id=${this.dealId}&${ownerId}`;
+    const link = `${location}/marketplace/deal?id=${this.dealId}`;
 
     switch (vendor) {
       case 'fb':
@@ -352,7 +296,7 @@ export class DealDetailsComponent implements OnInit {
 
   exploreDeals() {
     this.nav.navigateForward(['marketplace/explore-deals'], {
-      queryParams: { corp: btoa(this.ownerId) }
+      queryParams: { corp: this.ownerId }
     });
   }
 

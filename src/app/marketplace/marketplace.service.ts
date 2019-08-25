@@ -24,4 +24,9 @@ export class MarketplaceService {
     return this.dummyDeals;
   }
 
+  getDealDetails(dealId: number) {
+    const matchDeal = this.dummyDeals.filter(deal => deal.id === dealId);
+    return matchDeal[0];
+  }
+
 }

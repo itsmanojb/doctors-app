@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-// import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule } from '@agm/core';
 // import { AgmDirectionModule } from 'agm-direction';
 import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '../_components/components.module';
@@ -38,9 +38,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    // AgmCoreModule.forRoot({
-    //   apiKey: environment.AGM_KEY
-    // }),
+    AgmCoreModule.forRoot({
+      apiKey: environment.AGM_KEY
+    }),
     // AgmDirectionModule,
     ComponentsModule,
     PipesModule
@@ -56,4 +56,4 @@ const routes: Routes = [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [DealMapComponent]
 })
-export class MarketplacePageModule {}
+export class MarketplacePageModule { }

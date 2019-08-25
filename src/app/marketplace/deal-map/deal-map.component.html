@@ -2,13 +2,13 @@
   <ion-toolbar class="colored">
     <ion-buttons slot="start">
       <ion-button slot="icon-only" class="back-button" color="light" (click)="dismissModal()">
-        <ion-icon src="assets/svg/md-arrow-back.svg"></ion-icon>
+        <ion-icon md="md-arrow-back" ios="md-arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title color="light" text-center>{{title}}</ion-title>
     <ion-buttons slot="end">
       <ion-button color="light" (click)="initSearch()">
-        <ion-icon src="assets/svg/ios-search.svg"></ion-icon>
+        <ion-icon md="ios-search" ios="ios-search"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -17,7 +17,7 @@
   <div class="address-bar">
     {{address}}
   </div>
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
+  <agm-map [latitude]="lat" [longitude]="lng" [streetViewControl]="false" [zoom]="14" [styles]="styles">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   </agm-map>
 </ion-content>

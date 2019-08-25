@@ -65,10 +65,9 @@ export class MarketplacePage implements OnInit {
   }
 
   showDetails(deal: any) {
-    const id = deal.dealId;
-    const owner = window.btoa(deal.userId);
+    const id = deal.id;
     this.nav.navigateForward(['/marketplace/deal'], {
-      queryParams: { id, owner }
+      queryParams: { id }
     });
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NavParams, ModalController, Platform } from '@ionic/angular';
+import MapStyle from './map-styles.json';
 
 @Component({
   selector: 'app-deal-map',
@@ -8,20 +9,19 @@ import { NavParams, ModalController, Platform } from '@ionic/angular';
   styleUrls: ['./deal-map.component.scss']
 })
 export class DealMapComponent implements OnInit {
-  private mylat;
-  private mylng;
+
 
   public lat: number;
   public lng: number;
-
-  public origin: any;
-  public destination: any;
+  // public origin: any;
+  // public destination: any;
 
   title: string;
   address: string;
+  styles = MapStyle;
 
   constructor(
-    private params: NavParams,
+    params: NavParams,
     // private loc: Geolocation,
     private modal: ModalController,
     private platform: Platform
@@ -33,7 +33,7 @@ export class DealMapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.destination = { lat: this.lat, lng: this.lng };
+    // this.destination = { lat: this.lat, lng: this.lng };
     // this.loc.getCurrentPosition().then(resp => {
     //   this.mylat = resp.coords.latitude;
     //   this.mylng = resp.coords.longitude;

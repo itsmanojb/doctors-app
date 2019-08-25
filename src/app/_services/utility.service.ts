@@ -77,4 +77,19 @@ export class UtilityService {
     };
   }
 
+  createCymd(d) {
+    let day, month, year;
+    if (d) {
+      d = new Date(d);
+      day = d.getDate();
+      month = d.getMonth() + 1;
+      year = d.getFullYear();
+    } else {
+      day = 0;
+      month = 0;
+      year = 0;
+    }
+    return { year, month, day };
+  }
+
 }

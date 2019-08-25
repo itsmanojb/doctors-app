@@ -34,7 +34,22 @@
     "totalRatings": 20,
     "score": 3.5
   },
-  "reviews": [],
+  "reviews": [{
+    "id": 1,
+    "user": "Username",
+    "comment": "sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
+    "ts": 1566700200000
+  }, {
+    "id": 2,
+    "user": "New User",
+    "comment": "Velit euismod in pellentesque massa placerat.",
+    "ts": 1566585000000
+  }, {
+    "id": 3,
+    "user": "User002",
+    "comment": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima",
+    "ts": 1566239400000
+  }],
   "isCertified": false
 }, {
   "id": 2,
