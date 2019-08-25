@@ -13,7 +13,7 @@ export class RegisterPage {
   constructor(private title: Title) { }
 
   ionViewDidEnter() {
-    this.title.setTitle('Doctor Registration | PatientMD');
+    this.title.setTitle('Doctor Registration');
   }
 
   getState(outlet) {
