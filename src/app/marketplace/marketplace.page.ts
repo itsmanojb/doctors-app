@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { NavController, ModalController, IonInfiniteScroll } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
 
 import { SearchComponent } from '../_components/search/search.component';
 import { MarketplaceService } from './marketplace.service';
@@ -11,7 +11,6 @@ import { MarketplaceService } from './marketplace.service';
   styleUrls: ['./marketplace.page.scss']
 })
 export class MarketplacePage implements OnInit {
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   emptyFeed: boolean;
   feedLoading: boolean;
@@ -61,7 +60,7 @@ export class MarketplacePage implements OnInit {
       this.emptyFeed = dealData.length === 0 ? true : false;
       this.deals = dealData;
       this.feedLoading = false;
-    }, 5000);
+    }, 3000);
   }
 
   showDetails(deal: any) {

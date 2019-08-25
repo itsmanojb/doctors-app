@@ -85,21 +85,7 @@ export class DealDetailsComponent implements OnInit {
       this.dataLoading = false;
       this.loadCommentCount();
     }, 2000);
-    // this.data
-    //   .getDealDetails(this.ownerId, this.jwt, this.dealId)
-    //   .toPromise()
-    //   .then(res => {
-    //     const data = res.json();
-    //     console.log(data);
-    //     
-    //     this.address = `${this.deal.corpextra.branch.demog.address}, ${
-    //       this.deal.corpextra.branch.demog.city
-    //     }, ${this.deal.corpextra.branch.demog.locstate}, ${
-    //       this.deal.corpextra.branch.demog.zip
-    //     }, ${this.deal.corpextra.branch.demog.country}`;
-    //     // this.fetch.downloadMedia(data.media[0].tnrefId, this.jwt).subscribe(async (res) => {
-    //     //   this.coverImgSrc = await this.fetch.getMediaSrc(res);
-    //     // });
+
     this.address = this.deal.corp.address;
     this.buyCount = this.deal.stocks.total - this.deal.stocks.available;
     const progress = this.buyCount !== 0 ? (this.deal.stocks.available * 100) / this.deal.stocks.total : 0;
@@ -296,7 +282,7 @@ export class DealDetailsComponent implements OnInit {
 
   exploreDeals() {
     this.nav.navigateForward(['marketplace/explore-deals'], {
-      queryParams: { corp: this.ownerId }
+      queryParams: { corpId: this.deal.corp.id }
     });
   }
 

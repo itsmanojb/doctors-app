@@ -10,18 +10,16 @@ export class MarketplaceService {
   constructor() { }
 
   getDeals(category?: string) {
-    // console.log(this.dummyDeals);
     return this.dummyDeals;
   }
 
   getTodayDeals(category?: string) {
-    // console.log(this.dummyDeals);
     return this.dummyDeals;
   }
 
-  getDealsByCorp(category?: string) {
-    // console.log(this.dummyDeals);
-    return this.dummyDeals;
+  getDealsByCorp(corpId: number, category?: string) {
+    const matchDeals = this.dummyDeals.filter(deal => deal.corp.id === corpId);
+    return matchDeals;
   }
 
   getDealDetails(dealId: number) {
