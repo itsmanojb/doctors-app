@@ -13,11 +13,11 @@
     <ion-list>
       <ion-item lines="inset" (click)="openBottomSheet(item)" *ngFor="let item of g.referrals.reverse()">
         <ion-avatar slot="start" class="doc-img">
-          <app-image [token]="jwt" [mediaId]="item.avatar" imgType="avatar" circular="true" nospinner=true></app-image>
+          <img [src]="item.avatar" alt="">
         </ion-avatar>
         <ion-label>
-          <h2>{{refData.getFullname(item.practitioner.demog)}}</h2>
-          <h3>RTT: {{refData.getFullname(item.patient.demog)}}</h3>
+          <h2>Dr. {{refData.getFullname(item.practitioner)}}</h2>
+          <h3>RTT: {{refData.getFullname(item.patient)}}</h3>
         </ion-label>
         <!-- <ion-note slot="end">{{item.created | date : 'shortTime'}}</ion-note> -->
       </ion-item>

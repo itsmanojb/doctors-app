@@ -3,12 +3,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FooterTabsComponent } from './footer-tabs/footer-tabs.component';
 import { TopicsComponent } from './topics/topics.component';
 import { ContactPickerComponent } from './contact-picker/contact-picker.component';
+import { SkeletonComponent } from './skeleton/skeleton.component';
 
 @NgModule({
   declarations: [
     ContactPickerComponent,
     FooterTabsComponent,
-    TopicsComponent
+    TopicsComponent,
+    SkeletonComponent,
   ],
   imports: [
     CommonModule
@@ -19,7 +21,8 @@ import { ContactPickerComponent } from './contact-picker/contact-picker.componen
   exports: [
     ContactPickerComponent,
     FooterTabsComponent,
-    TopicsComponent
+    TopicsComponent,
+    SkeletonComponent,
   ],
   entryComponents: [
     ContactPickerComponent,

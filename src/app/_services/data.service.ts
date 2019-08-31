@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import Users from '../../assets/dummy/users.json';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,7 @@ import { Http } from '@angular/http';
 export class DataService {
 
   private readonly units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  private readonly users: any[] = Users;
 
   constructor(
     private http: Http,
@@ -30,6 +32,10 @@ export class DataService {
       n = n / 1024;
     }
     return (n.toFixed(n < 10 && l > 0 ? 1 : 0) + ' ' + this.units[l]);
+  }
+
+  getUser(userId: number, userType: string) {
+    return this.users.filter(u => u.index === userId && u.userType === userType)[0];
   }
 
 

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import { ToastController, ModalController } from '@ionic/angular';
 
 import { DataService } from 'src/app/_services/data.service';
@@ -7,6 +6,7 @@ import { ReferralsService } from '../referrals.service';
 import { MatBottomSheet } from '@angular/material';
 import { Observable } from 'rxjs';
 import { ReferralComponent } from '../referral/referral.component';
+import Referrals from '../../../assets/dummy/referrals.json';
 
 @Component({
   selector: 'app-received-referrals-list',
@@ -18,24 +18,18 @@ export class ReceivedListComponent implements OnInit {
   private eventsSubscription: any
   @Input() refresh: Observable<void>;
 
-  userId: string;
-  jwt: string;
-
   rawData = [];
   referrals = [];
   filterOn = false;
   noReferrals = true;
   dataLoading: boolean;
 
-  // docDataUrl = patmdEndpoint.DoctorsProfileData;
-  // patDataUrl = patmdEndpoint.PatientsProfileData;
 
   constructor(
     private data: DataService,
     public refData: ReferralsService,
     private toast: ToastController,
     private modal: ModalController,
-    private storage: Storage,
     private bottomSheet: MatBottomSheet,
   ) { }
 
@@ -49,52 +43,35 @@ export class ReceivedListComponent implements OnInit {
   }
 
   async fetchReferrals() {
-    // this.dataLoading = true;
+    this.dataLoading = true;
 
-    // const user: CuserUI = await this.storage.get('PMD_USER');
-    // this.userId = user.userId;
-    // this.jwt = user.jwt_token;
+    const jsonData = Referrals;
+    this.refData.arraySort(jsonData);
+    this.prepareData(jsonData);
 
-    // const url = patmdEndpoint.GetReferrals;
-    // const payload = {
-    //   'referredUserId': this.userId
-    // };
-    // this.data.postAPICallSecure(url, payload, this.jwt)
-    //   .then(res => {
-    //     const apiData = res as any[];
-    //     if (apiData.length > 0) {
-    //       this.noReferrals = false;
-    //       this.refData.arraySort(apiData);
-    //       this.prepareData(apiData);
-    //     } else {
-    //       this.noReferrals = true;
-    //       this.dataLoading = false;
-    //       this.presentToast('No referrals found.');
-    //     }
-    //   })
-    //   .catch(err => {
-    //     this.presentToast('Something went wrong. Try again later.');
-    //   });
+    setTimeout(() => {
+      this.noReferrals = false;
+      this.dataLoading = false;
+    }, 2000);
+
   }
 
   async prepareData(data: any) {
-    // const promises = data.map(async (item: any) => {
-    //   const docId = item.referredUserId === this.userId ? item.referrerUserId : item.referredUserId;
-    //   const patId = item.patientUserId;
-    //   const docData = await this.data.postAPICallSecure(this.docDataUrl, { userId: docId }, this.jwt);
-    //   const patData = await this.data.postAPICallSecure(this.patDataUrl, { userId: patId }, this.jwt);
-    //   return {
-    //     created: item.dtCreate,
-    //     referral: item,
-    //     practitioner: docData[0],
-    //     avatar: docData[0].tnfilerefId,
-    //     patient: patData[0]
-    //   };
-    // });
-    // const results = await Promise.all(promises);
-    // this.rawData = results;
-
-    // this.referrals = this.refData.doDatewiseGroup(results);
+    // console.log(data);
+    const allData = data.map((item: any) => {
+      const doctor = this.data.getUser(item.referredBy, 'Doctor');
+      const patient = this.data.getUser(item.patient, 'Patient');
+      return {
+        created: item.dtCreate,
+        referral: item,
+        practitioner: doctor,
+        avatar: doctor.picture,
+        patient: patient
+      };
+    });
+    this.rawData = allData;
+    // console.log(this.rawData);
+    this.referrals = this.refData.doDatewiseGroup(allData);
     // this.dataLoading = false;
 
   }
@@ -113,9 +90,7 @@ export class ReceivedListComponent implements OnInit {
       closeOnNavigation: true,
       data: {
         referral,
-        readOnly: false,
-        token: this.jwt,
-        userId: this.userId
+        readOnly: false
       },
     });
     sheet.afterDismissed().subscribe((data) => {

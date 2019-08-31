@@ -1,0 +1,107 @@
+$base-color: #eee;
+$shine-color: #f6f6f6;
+$animation-duration: 1.6s;
+$avatar-offset: 52+16;
+$line-width: 250px;
+
+@mixin background-gradient {
+    background-image: linear-gradient(90deg, $base-color 0px, $shine-color 40px, $base-color 80px);
+    background-size: 600px
+}
+
+@keyframes shine-lines {
+    0% {
+        background-position: -100px
+    }
+
+    40%,
+    100% {
+        background-position: $line-width
+    }
+}
+
+@keyframes shine-avatar {
+    0% {
+        background-position: -100px + $avatar-offset
+    }
+
+    40%,
+    100% {
+        background-position: $line-width + $avatar-offset
+    }
+}
+
+.efax-skeleton {
+
+    padding: 5px 0;
+    background: #fafafa;
+
+    >span {
+        display: inline-block;
+        margin: 5px var(--card-margin);
+        width: 35%;
+        background: $base-color;
+        border-radius: 1px;
+        height: 6px;
+        border-radius: 2px;
+    }
+
+    >div {
+        background: #fff;
+        border: 1px solid #f2f2f2;
+        border-width: 1px 0;
+        border-radius: 1px;
+        position: relative;
+        height: 76px;
+        display: grid;
+        padding: 12px 16px;
+        grid-template-columns: 50px auto;
+
+        >div {
+
+            &:first-child {
+                position: relative;
+                width: 50px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    height: 50px;
+                    width: 50px;
+                    left: 0;
+                    top: 0;
+                    animation: shine-avatar $animation-duration infinite linear;
+                    @include background-gradient;
+                    border-radius: 50%
+                }
+            }
+
+            &:last-child {
+                padding-left: 15px;
+
+                span {
+                    display: block;
+                    animation: shine-lines $animation-duration infinite linear;
+                    @include background-gradient;
+                    margin: 10px 0;
+
+                    &:first-of-type {
+                        height: 10px;
+                        width: 45%;
+                        border-radius: 2px;
+                    }
+
+                    &:last-of-type {
+                        height: 8px;
+                        width: 80%;
+                        border-radius: 1px;
+                    }
+                }
+            }
+        }
+
+        &:not(:last-of-type) {
+            border-bottom: 0;
+        }
+    }
+}

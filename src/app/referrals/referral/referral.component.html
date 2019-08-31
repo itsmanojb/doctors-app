@@ -1,12 +1,12 @@
 <ion-list class="mb-0">
   <ion-item lines="none">
     <ion-avatar slot="start">
-      <img [src]="imgUrl" alt="">
+      <img [src]="refData.avatar" alt="">
     </ion-avatar>
     <ion-label>
-      <h2>{{refData.getFullname(referral.practitioner.demog)}}</h2>
+      <h2>Dr. {{ref.getFullname(refData.practitioner)}}</h2>
       <ion-text color="medium">
-        <h3>{{referral.practitioner.pracarea.join(', ')}}</h3>
+        <h3>{{refData.practitioner.speciality}}</h3>
       </ion-text>
     </ion-label>
   </ion-item>
@@ -16,34 +16,34 @@
     </ion-label>
     <ion-badge slot="end" color="medium" *ngIf="pendingReferral">Pending</ion-badge>
     <ion-badge slot="end" color="medium" *ngIf="newReferral">New</ion-badge>
-    <ion-badge slot="end" color="primary" *ngIf="referral.referral.state === 2">Accepted</ion-badge>
-    <ion-badge slot="end" color="danger" *ngIf="referral.referral.state === 3">Declined</ion-badge>
+    <ion-badge slot="end" color="primary" *ngIf="referral.state === 2">Accepted</ion-badge>
+    <ion-badge slot="end" color="danger" *ngIf="referral.state === 3">Declined</ion-badge>
   </ion-item>
   <ion-item lines="inset">
     <ion-label color="medium">Patient</ion-label>
-    <ion-label slot="end" text-right>{{refData.getFullname(referral.patient.demog)}}</ion-label>
+    <ion-label slot="end" text-right>{{ref.getFullname(refData.patient)}}</ion-label>
   </ion-item>
-  <ion-item lines="inset" *ngIf="referral.referral.msgReferral">
+  <ion-item lines="inset" *ngIf="referral.referralMsg">
     <ion-label text-wrap>
       <ion-text color="medium">Referred Message</ion-text>
-      <p>{{referral.referral.msgReferral}}
+      <p>{{referral.referralMsg}}
         <!-- &mdash; <small>{{referral.referral.dtCreate | date: 'mediumDate'}}</small> -->
       </p>
     </ion-label>
   </ion-item>
-  <ion-item lines="inset" *ngIf="referral.referral.state === 3 && referral.referral.msgDecline">
+  <ion-item lines="inset" *ngIf="referral.state === 3 && referral.responseMsg">
     <ion-label text-wrap>
       <ion-text color="medium">Reply</ion-text>
-      <p>{{referral.referral.msgDecline}}
-        &mdash; <small>{{referral.referral.lastModified | date: 'mediumDate'}} </small>
+      <p>{{referral.responseMsg}}
+        &mdash; <small>{{referral.lastModified | date: 'mediumDate'}} </small>
       </p>
     </ion-label>
   </ion-item>
-  <ion-item lines="inset" *ngIf="referral.referral.state === 2 && referral.referral.msgAccept">
+  <ion-item lines="inset" *ngIf="referral.state === 2 && referral.responseMsg">
     <ion-label text-wrap>
       <ion-text color="medium">Reply</ion-text>
-      <p>{{referral.referral.msgAccept}}
-        &mdash; <small>{{referral.referral.lastModified | date: 'mediumDate'}}</small>
+      <p>{{referral.responseMsg}}
+        &mdash; <small>{{referral.lastModified | date: 'mediumDate'}}</small>
       </p>
     </ion-label>
   </ion-item>

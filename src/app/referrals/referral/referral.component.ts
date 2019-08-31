@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
 import { ReferralsService } from '../referrals.service';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
@@ -23,37 +23,25 @@ export class ReferralComponent implements OnInit {
   hasMessage: boolean;
   referralState: string;
 
+  refData: any;
   referral: any;
-  userId: string;
-  jwt: string;
+  userId = 2;
   imgUrl: SafeUrl = this.sanitizer.bypassSecurityTrustUrl('assets/images/avatar.jpg');
 
   replyReferralForm: FormGroup;
   formSubmitted = false;
 
   constructor(
-    public refData: ReferralsService,
-    private fetch: DataService,
+    public ref: ReferralsService,
     private sanitizer: DomSanitizer,
     private bottomSheetRef: MatBottomSheetRef<ReferralComponent>,
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: any,
-    private _changeDetectorRef: ChangeDetectorRef
+    // private _changeDetectorRef: ChangeDetectorRef
   ) {
 
     this.acted = false;
-    this.referral = data.referral;
-    this.jwt = data.token;
-    this.userId = data.userId;
-    const mediaId = this.referral.avatar;
-
-    // if (mediaId) {
-    //   this.fetch.downloadMedia(mediaId, this.jwt)
-    //     .subscribe(async (res) => {
-    //       this.imgUrl = await this.fetch.getMediaSrc(res);
-    //       this._changeDetectorRef.markForCheck();
-    //     });
-    // }
-
+    this.refData = data.referral;
+    this.referral = data.referral.referral;
     this.replyReferralForm = new FormGroup({
       replyMsg: new FormControl('', [Validators.maxLength(200)]),
     });
@@ -65,23 +53,23 @@ export class ReferralComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(this.referral);
+    console.log(this.referral);
 
-    if (this.referral.referral.referrerUserId === this.userId) {
-      if (this.referral.referral.state === 1) {
+    if (this.referral.referredBy === this.userId) {
+      if (this.referral.state === 1) {
         this.pendingReferral = true;
       }
-    } else if (this.referral.referral.referredUserId === this.userId) {
-      if (this.referral.referral.state === 1) {
+    } else {
+      if (this.referral.state === 1) {
         this.newReferral = true;
       }
     }
 
-    if (this.referral.referral.msgReferral || this.referral.referral.msgDecline || this.referral.referral.msgAccept) {
+    if (this.referral.responseMsg || this.referral.referralMsg) {
       this.hasMessage = true;
     }
 
-    switch (this.referral.referral.state) {
+    switch (this.referral.state) {
       case 1: this.referralState = 'Pending';
         break;
       case 2: this.referralState = 'Accepted';
@@ -103,12 +91,12 @@ export class ReferralComponent implements OnInit {
   }
 
   onSubmit(e) {
-    const params = {
-      userId: this.userId,
-      statetext: e.value.replyMsg || '',
-      refId: this.referral.referral.refId,
-      state: this.accepted ? 2 : 3
-    };
+    // const params = {
+    //   userId: this.userId,
+    //   statetext: e.value.replyMsg || '',
+    //   refId: this.referral.referral.refId,
+    //   state: this.accepted ? 2 : 3
+    // };
     this.formSubmitted = true;
     this.replyReferralForm.get('replyMsg').disable();
     // this.fetch.postAPICallSecure(this.updateRefURL, params, this.jwt, false)

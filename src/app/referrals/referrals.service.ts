@@ -45,10 +45,12 @@ export class ReferralsService {
       });
       referralArr.push(datedReferrals);
     });
+    // console.log(referralArr);
     return referralArr;
   }
 
   doNamewiseGroup(arr: any[]) {
+    // console.log(arr);
     const names = [];
     arr.forEach((el: any) => {
       const fname = this.getFullname(el.practitioner.demog);
@@ -71,7 +73,7 @@ export class ReferralsService {
   }
 
   getFullname(demog: any): string {
-    return `${demog.userFName} ${demog.userMName} ${demog.userLName}`;
+    return `${demog.name.first} ${demog.name.last}`;
   }
 
   isCurrentYear(timestamp: string): boolean {
