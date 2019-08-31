@@ -1,0 +1,89 @@
+<ion-header class="flat bordered">
+  <ion-toolbar class="trans">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" class="btn__modal btn__cancel" [disabled]="formSubmitted">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+    <ion-title text-center>New Referral</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="submit()" class="btn__modal btn__submit" [disabled]="referralForm.invalid || formSubmitted">
+        Submit
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="new-referral form-wrapper" [class.disabled]="formSubmitted">
+    <form [formGroup]="referralForm" novalidate>
+      <div class="post-card">
+        <ion-item lines="none" (click)="openDoctorPicker()">
+          <ion-label position="stacked">Refer to</ion-label>
+          <ion-input placeholder="Choose Doctor" readonly formControlName="referredUserName"></ion-input>
+          <input type="hidden" id="referredUserId" formControlName="referredUserId">
+        </ion-item>
+        <div class="divider"></div>
+        <div class="recent-contacts">
+          <h5>Recent Contacts</h5>
+          <div class="wrapper">
+            <div class="contact add" (click)="openDoctorPicker()">
+              <ion-icon ios="md-person-add" md="md-person-add"></ion-icon>
+            </div>
+            <div class="contact doc" [class.selected]="quickSelected === item.userId" *ngFor="let item of recentDocs"
+              (click)="quickSelectDoc(item)">
+              <app-image [token]="jwt" [mediaId]="item.tnfilerefId" imgType="avatar" circular="true" nospinner=true>
+              </app-image>
+              <span>{{item.demog.userFName}} {{item.demog.userLName}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="post-card">
+        <ion-item lines="none" (click)="openPatientPicker()">
+          <ion-label position="stacked">RTT</ion-label>
+          <ion-input placeholder="Choose patient" readonly formControlName="patientUserName"></ion-input>
+          <input type="hidden" id="patientUserId" formControlName="patientUserId">
+        </ion-item>
+        <div class="divider"></div>
+        <div class="post-body-wrapper">
+          <label>Write your referral message</label>
+          <mat-form-field class="w-100">
+            <textarea matInput cdkTextareaAutosize class="limited size-md" #input maxlength="200"
+              formControlName="msgReferral"></textarea>
+            <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="post-card">
+        <ion-item lines="none">
+          <ion-label>Set Priority</ion-label>
+          <ion-select [interfaceOptions]="referralPriority" interface="action-sheet" placeholder="Select One">
+            <ion-select-option value="Critical">Critical</ion-select-option>
+            <ion-select-option value="Urgent">Urgent</ion-select-option>
+            <ion-select-option value="Normal">Normal</ion-select-option>
+            <ion-select-option value="Low">Low</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="divider"></div>
+        <ion-item lines="none">
+          <ion-label text-wrap>
+            <h6>Follow Up</h6>
+            <ion-text color="medium">
+              Get notified about this patient's activities
+            </ion-text>
+          </ion-label>
+          <ion-toggle></ion-toggle>
+        </ion-item>
+
+      </div>
+      <!-- <div class="btn-wrapper fixed__bottom">
+        <button class="btn btn-outline">
+          Cancel
+        </button>
+        <button class="btn btn-fill primary">
+          Send
+        </button>
+      </div> -->
+    </form>
+  </div>
+</ion-content>

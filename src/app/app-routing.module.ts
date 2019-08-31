@@ -38,6 +38,10 @@ const routes: Routes = [
     loadChildren: './assistant/assistant.module#AssistantPageModule'
   },
   {
+    path: 'referrals',
+    loadChildren: './referrals/referrals.module#ReferralsPageModule'
+  },
+  {
     path: 'wallet',
     loadChildren: './wallet/wallet.module#WalletPageModule'
   },

@@ -1,0 +1,66 @@
+ion-list {
+  padding-top: 5px;
+}
+
+.referral-actions {
+
+  // padding-top: 10px;
+
+  .message-box {
+    // padding: 0;
+    // border-bottom: 1px solid var(--divider-line-color);
+    // margin: 0 0 0 1rem;
+    padding: 10px;
+    margin: 0 1rem 0 1rem;
+    border: 1px solid #f2f2f2;
+    border-radius: 5px;
+
+    label {
+      font-size: 13px;
+      color: var(--ion-color-medium-shade);
+      padding-bottom: 2px;
+      display: block;
+    }
+
+    textarea {
+      border: none;
+      resize: none;
+      font-size: 14px;
+      // width: calc(100% - 16px);
+      // border-bottom: 1px solid var(--divider-line-color);
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .submit-form {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 1rem;
+
+    button {
+      padding: 10px 2rem;
+      background: transparent;
+      cursor: pointer;
+      font-size: 15px;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      color: #666;
+
+      &.primary {
+        border-color: var(--ion-color-primary);
+        color: var(--ion-color-primary);
+      }
+
+      &+button {
+        margin-left: 10px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

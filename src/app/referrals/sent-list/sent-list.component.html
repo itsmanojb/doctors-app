@@ -1,0 +1,29 @@
+<app-list-skeleton *ngIf="dataLoading"></app-list-skeleton>
+<div class="content__empty" *ngIf="!dataLoading && noReferrals">
+  <div class="no-referrals"></div>
+</div>
+<div class="content__loaded" *ngIf="!dataLoading && !noReferrals">
+  <div class="ref-item-group" *ngFor="let g of referrals">
+    <div class="date-header">
+      <ion-label *ngIf="refData.isCurrentYear(g.date); else showYear">{{g.date | date: 'EEEE, LLL d' }} </ion-label>
+      <ng-template #showYear>
+        <ion-label>{{g.date | date: 'LLL d y' }} </ion-label>
+      </ng-template>
+    </div>
+    <ion-list>
+      <ion-item lines="inset" (click)="openBottomSheet(item)" *ngFor="let item of g.referrals">
+        <ion-avatar slot="start" class="doc-img">
+          <app-image [token]="jwt" [mediaId]="item.avatar" imgType="avatar" circular="true"></app-image>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{refData.getFullname(item.practitioner.demog)}}</h2>
+          <h3>RTT: {{refData.getFullname(item.patient.demog)}}</h3>
+        </ion-label>
+        <!-- <ion-note slot="end">{{item.created | date : 'shortTime'}}</ion-note> -->
+      </ion-item>
+    </ion-list>
+    <!-- <app-referral-item *ngFor="let fax of g.referrals" class="ref-item-wrapper" [jwt]="jwt" [number]="fax"
+        [allNumbers]="allNumbers" (store)="storeNumber($event)" (delete)="deleteFax($event)"
+        (addEHR)="addToEHR($event)"></app-referral-item> -->
+  </div>
+</div>

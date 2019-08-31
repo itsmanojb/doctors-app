@@ -1,0 +1,35 @@
+<ion-header class="flat">
+  <ion-toolbar class="colored">
+    <ion-buttons slot="start">
+      <ion-button color="light" routerDirection="forward" routerLink="/account">
+        <ion-icon ios="md-contact" md="md-contact"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" text-center>Referrals</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="newReferral()">
+        <ion-icon ios="md-add" md="md-add"></ion-icon>
+      </ion-button>
+      <!-- <ion-button color="light" (click)="initSearch()">
+          <ion-icon ios="ios-search" md="ios-search"></ion-icon>
+        </ion-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="bg-colored">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Pull to refresh" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+  <mat-tab-group class="fixed-header" mat-stretch-tabs>
+    <mat-tab label="Received">
+      <app-received-referrals-list [refresh]="refreshNeeded.asObservable()"></app-received-referrals-list>
+    </mat-tab>
+    <mat-tab label="Sent">
+      <app-sent-referrals-list [refresh]="refreshNeeded.asObservable()"></app-sent-referrals-list>
+    </mat-tab>
+  </mat-tab-group>
+</ion-content>
+<ion-footer class="flat">
+  <footer-tabs></footer-tabs>
+</ion-footer>
