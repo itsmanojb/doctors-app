@@ -1,0 +1,24 @@
+<div class="video__card">
+  <div class="video__preview clickable" (click)="videoClick()">
+    <div class="video__wrapper">
+      <img [src]="v.video.thumbnailUrl" alt="{{v.title}}">
+    </div>
+    <div class="play-button"></div>
+    <div class="duration">{{vData.convertVideoTime(v.video.duration)}}</div>
+  </div>
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img [src]="v.author.picture" alt="...">
+    </ion-avatar>
+    <ion-label text-wrap>
+      <ion-text class="video__title">
+        <h2>{{v.title}}</h2>
+      </ion-text>
+      <ion-text color="medium">
+        <p class="video__info"> <span>{{v.author.name.first}} {{v.author.name.last}}</span>
+          &middot;
+          {{v.dtCreated | humanDate}}</p>
+      </ion-text>
+    </ion-label>
+  </ion-item>
+</div>

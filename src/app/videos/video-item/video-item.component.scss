@@ -1,0 +1,92 @@
+.video__card {
+  margin-bottom: 10px;
+
+  .video__preview {
+    position: relative;
+
+    .video__wrapper {
+      height: 45vw;
+      background: #eee;
+
+      &.loading {
+        animation: pulsate 1.6s linear infinite;
+      }
+    }
+
+    &:not(.clickable) {
+
+      .video__wrapper img,
+      .play-button,
+      .duration {
+        display: none
+      }
+    }
+
+    &.clickable {
+      .video__wrapper {
+        background-color: #000000;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: rgba($color: #000000, $alpha: 0.15);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .play-button {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background: url('../../../assets/images/play-button.png') no-repeat;
+        background-position: center;
+        background-size: 35px;
+        top: 50%;
+        margin-top: -20px;
+        left: 50%;
+        margin-left: -25px;
+      }
+
+      .duration {
+        position: absolute;
+        right: 0;
+        z-index: 1;
+        bottom: 0;
+        padding: 5px 10px;
+        background: rgba(0, 0, 0, 0.25);
+        margin: 10px;
+        border-radius: 5px;
+        font-size: 13px;
+        color: #fff;
+        font-weight: 500;
+        line-height: 1;
+      }
+    }
+
+  }
+
+  .video__info {
+    font-size: 13px;
+  }
+
+  ion-item {
+    --ion-background-color: var(--card-background);
+  }
+
+  .video__title {
+    color: var(--ion-color-primary);
+  }
+
+}

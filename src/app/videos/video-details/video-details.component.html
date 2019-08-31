@@ -1,0 +1,116 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" class="back-button" color="light" (click)="goBack()">
+        <ion-icon src="assets/svg/md-arrow-back.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="video-details-page">
+    <div class="video__card">
+      <div class="video__preview clickable">
+        <div class="video__wrapper">
+          <app-image [token]="token" [mediaId]="video.videodet.medium.mediarefId" nospinner="true" sharpEdge="true"
+            isVideo="true" isPlayable="true">
+          </app-image>
+        </div>
+        <!-- <div class="duration">{{vdata.convertVideoTime(video.videodet.durmin)}}</div> -->
+      </div>
+      <ion-item lines="full">
+        <ion-avatar slot="start" class="publisher">
+          <app-image [token]="token" [mediaId]="userImgId" imgType="avatar" circular="true" nospinner="true">
+          </app-image>
+        </ion-avatar>
+        <ion-label text-wrap>
+          <ion-text color="primary">
+            <h2>{{video.videodet.title}}</h2>
+          </ion-text>
+          <ion-text color="dark">
+            <p>{{video.handle}}</p>
+          </ion-text>
+          <ion-text color="medium"><small>{{video.dtActive | date : 'mediumDate'}}</small></ion-text>
+        </ion-label>
+        <ion-icon slot="end" (click)="addTopicToList()" ios="md-bookmark" md="md-bookmark"></ion-icon>
+      </ion-item>
+      <div class="video__actions" [class.reaction-not-allowed]="ownPost">
+        <div class="react">
+          <button (click)="likeVideo(true)" [disabled]="ownPost">
+            <ion-icon ios="md-thumbs-up" md="md-thumbs-up"></ion-icon>
+            <span>{{likes}}</span>
+          </button>
+          <button (click)="likeVideo(false)" [disabled]="ownPost">
+            <ion-icon ios="md-thumbs-down" md="md-thumbs-down"></ion-icon>
+            <span>{{dislikes}}</span>
+          </button>
+        </div>
+        <div class="add-topic">
+          <button>
+            <ion-icon ios="md-share" md="md-share"></ion-icon>
+            <span>Share</span>
+          </button>
+        </div>
+      </div>
+      <div class="video__description">
+        <p *ngIf="topics">Topic: {{topics}}</p>
+        <p>Description not available.</p>
+      </div>
+    </div>
+
+    <section class="videos__related">
+      <ion-label class="section__title" slot="start">
+        Related Videos
+      </ion-label>
+      <ion-slides class="slides__videos" [options]="slideOpts">
+        <ion-slide>
+          <div class="video-tile">
+            <div class="cover show-play-btn" style="background-image: url('https://picsum.photos/400/320?image=1010')">
+            </div>
+            <span class="title">Lorem ipsum dolor sit.</span>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="video-tile">
+            <div class="cover show-play-btn" style="background-image: url('https://picsum.photos/400/320?image=1005')">
+            </div>
+            <span class="title">Lorem ipsum dolor</span>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </section>
+
+    <div class="video__comments">
+      <div class="all-comments">
+        <div class="c-header" *ngIf="reviews.length > 0">
+          <h6>{{reviews.length}} comments</h6>
+        </div>
+        <div class="new-comment" [class.busy]="commented">
+          <div class="avatar">
+            <app-image [token]="token" [mediaId]="userImgId" imgType="avatar" circular="true" nospinner="true">
+            </app-image>
+          </div>
+          <div class="c-form">
+            <ion-textarea class="v-comment cff" placeholder="Add your comment..." #input maxlength="500"
+              [disabled]="commented"></ion-textarea>
+          </div>
+          <div class="sbtn" [class.d-none]="input.value?.length === 0 || commented">
+            <button (click)="postComment(input.value)" [disabled]="input.value?.length === 0 || commented">
+              <ion-icon name="send"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="c-list">
+          <div class="comment" *ngFor="let item of reviews">
+            <div class="avatar">
+              <app-image [token]="token" [mediaId]="item.tnfilerefId" imgType="avatar" circular="true" nospinner="true">
+              </app-image>
+            </div>
+            <div class="c-body">
+              <small>{{item.handle}} <span class="meta">{{item.msgwhen | date }}</span> </small>
+              <p>{{item.usermsg}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

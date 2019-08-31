@@ -34,6 +34,10 @@ const routes: Routes = [
     loadChildren: './notifications/notifications.module#NotificationsPageModule'
   },
   {
+    path: 'videos',
+    loadChildren: './videos/videos.module#VideosPageModule'
+  },
+  {
     path: 'assistant',
     loadChildren: './assistant/assistant.module#AssistantPageModule'
   },

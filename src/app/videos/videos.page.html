@@ -1,0 +1,39 @@
+<ion-header class="flat">
+  <ion-toolbar class="colored">
+    <ion-buttons slot="start">
+      <ion-button color="light" routerDirection="forward" routerLink="/account">
+        <ion-icon ios="md-contact" md="md-contact"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" text-center>Videos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="initSearch()">
+        <ion-icon ios="ios-search" md="ios-search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- Feed -->
+  <section class="feed__wrapper mt-0" *ngIf="!feedLoading">
+    <div class="content__empty" *ngIf="emptyFeed">
+      <div class="no-videos"></div>
+    </div>
+    <div class="videos__list">
+      <app-video-item *ngFor="let video of videos" [video]="video" (onVideoClick)="playVideo(video)">
+      </app-video-item>
+    </div>
+    <ion-infinite-scroll threshold="200px" (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="dots" loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </section>
+  <app-video-feed-skeleton *ngIf="feedLoading"></app-video-feed-skeleton>
+</ion-content>
+<ion-footer class="flat">
+  <footer-tabs></footer-tabs>
+</ion-footer>

@@ -1,0 +1,250 @@
+ion-toolbar {
+  --ion-toolbar-background: transparent;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  position: absolute;
+}
+
+.video-details-page {
+  padding-bottom: 1rem;
+
+  .video__wrapper {
+    height: 55vw !important;
+  }
+
+  .video__description {
+    padding: 1rem;
+    // border-bottom: 1px solid var(--divider-line-color);
+
+    p {
+      margin: 0;
+      white-space: pre-line;
+      font-size: 15px;
+      line-height: 19px;
+      color: var(--text-color);
+    }
+  }
+}
+
+ion-item {
+  --border-color: var(--divider-line-color)
+}
+
+.videos__related {
+  padding: 1rem 0;
+
+  .slides__videos {
+    margin: 1rem 0;
+  }
+}
+
+.publisher {
+  align-self: start;
+  margin-top: 16px;
+}
+
+
+.video-tile {
+  width: calc(100% - 32px);
+
+  .cover {
+    background: #ddd;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    background-size: cover;
+    height: 180px;
+    width: calc(100% + 6px);
+    margin: 3px -2px;
+    position: relative;
+
+    &.show-play-btn {
+
+      &::before {
+        border-radius: 5px;
+        content: '';
+        background: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+
+      &::after {
+        content: '';
+        background: url('../../../assets/images/play-button.png') no-repeat;
+        background-position: center;
+        background-size: 35px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -25px;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+    }
+  }
+
+  .title {
+    display: block;
+    font-size: 14px;
+    padding: 5px 0;
+    text-align: left;
+    color: var(--ion-color-medium)
+  }
+}
+
+.all-comments {
+
+  .c-header {
+    padding: 16px var(--card-padding);
+
+    h6 {
+      margin: 0;
+      color: #888;
+      font-size: 16px;
+    }
+  }
+}
+
+.new-comment {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  grid-column-gap: 2px;
+  padding: 8px var(--card-padding);
+
+  .avatar {
+    height: 40px;
+  }
+
+  &.busy {
+    position: relative;
+
+    &::before {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      top: 10px;
+      right: 24px;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      border: 2px solid #eee;
+      border-top-color: var(--ion-color-primary);
+      animation: spinner 0.5s linear infinite;
+    }
+  }
+}
+
+.video__actions {
+  padding: 2px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: 1px solid var(--divider-line-color);
+
+  .react {
+    justify-self: start
+  }
+
+  .add-topic {
+    justify-self: end;
+  }
+
+  button {
+    padding: 16px 16px 16px 32px;
+    position: relative;
+    border-radius: 2px;
+    background: transparent;
+
+    ion-icon {
+      position: absolute;
+      margin-left: -20px;
+      font-size: 18px;
+      margin-top: -2px;
+      color: #757575;
+    }
+
+    span {
+      font-size: 14px;
+      padding-left: 4px;
+      color: #555;
+    }
+
+    &:focus,
+    &:focus {
+      outline: none
+    }
+  }
+
+  &.reaction-not-allowed .react {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.v-comment {
+  font-size: 15px
+}
+
+.sbtn {
+  text-align: center;
+  font-size: 24px;
+  /* color: #eee; */
+  align-self: start;
+  height: 40px;
+  // padding: 8px 0 0;
+}
+
+.comment {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-column-gap: 10px;
+  padding: 12px var(--card-padding);
+  border-top: 1px solid var(--divider-line-color);
+
+  .avatar {
+    height: 40px;
+  }
+
+  .c-body {
+    small {
+      display: block;
+      font-size: 14px;
+      color: var(--ion-color-primary);
+      font-weight: 500;
+
+      .meta {
+        color: var(--text-muted-color);
+        font-weight: 400;
+        font-size: 12px;
+
+        &::before {
+          content: '\00B7';
+          margin: 0 4px;
+          color: #aaa;
+        }
+      }
+    }
+
+    p {
+      color: var(--text-color);
+      margin: 4px auto 0;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  &+.comment {
+    margin-top: 5px;
+  }
+}
+
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg)
+  }
+}
