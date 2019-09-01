@@ -217,7 +217,7 @@
     </div>
   </section>
   <!-- Deals -->
-  <section>
+  <section *ngIf="dealLoaded">
     <ion-label class="section__title" slot="start">
       Latest Deals
       <ion-text class="more-link" text-right routerLink="/marketplace" routerDirection="forward">View All</ion-text>
@@ -225,90 +225,84 @@
     <ion-slides class="slides__dashboard deals" [options]="dealsSlideOpts">
       <ion-slide>
         <ion-list class="deals-list">
-          <ion-item lines="inset" (click)="selectDeal()">
+          <ion-item lines="inset" (click)="selectDeal(deals[0])">
             <ion-thumbnail slot="start">
-              <img src="//via.placeholder.com/100" alt="deal">
+              <img [src]="deals[0].media[0].url" alt="deal">
             </ion-thumbnail>
             <ion-label text-wrap>
               <ion-text color="primary">
-                <h3>Deal Title</h3>
+                <h3>{{deals[0].title}}</h3>
               </ion-text>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
-                quibusdam unde dolore error deleniti.</p>
-              <small>At place</small>
+              <p>{{deals[0].description}}</p>
+              <small>By {{deals[0].corp.name}}</small>
             </ion-label>
           </ion-item>
-          <ion-item lines="inset" (click)="selectDeal()">
+          <ion-item lines="inset" (click)="selectDeal(deals[1])">
             <ion-thumbnail slot="start">
-              <img src="//via.placeholder.com/100" alt="deal">
+              <img [src]="deals[1].media[0].url" alt="deal">
             </ion-thumbnail>
             <ion-label text-wrap>
               <ion-text color="primary">
-                <h3>Deal Title</h3>
+                <h3>{{deals[1].title}}</h3>
               </ion-text>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
-                quibusdam unde dolore error deleniti.</p>
-              <small>At place</small>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-slide>
-      <ion-slide>
-        <ion-list class="deals-list">
-          <ion-item lines="inset" (click)="selectDeal()">
-            <ion-thumbnail slot="start">
-              <img src="//via.placeholder.com/100" alt="deal">
-            </ion-thumbnail>
-            <ion-label text-wrap>
-              <ion-text color="primary">
-                <h3>Deal Title</h3>
-              </ion-text>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
-                quibusdam unde dolore error deleniti.</p>
-              <small>At place</small>
-            </ion-label>
-          </ion-item>
-          <ion-item lines="inset" (click)="selectDeal()">
-            <ion-thumbnail slot="start">
-              <img src="//via.placeholder.com/100" alt="deal">
-            </ion-thumbnail>
-            <ion-label text-wrap>
-              <ion-text color="primary">
-                <h3>Deal Title</h3>
-              </ion-text>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
-                quibusdam unde dolore error deleniti.</p>
-              <small>At place</small>
+              <p>{{deals[1].description}}</p>
+              <small>By {{deals[1].corp.name}}</small>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-slide>
       <ion-slide>
         <ion-list class="deals-list">
-          <ion-item lines="inset" (click)="selectDeal()">
+          <ion-item lines="inset" (click)="selectDeal(deals[2])">
             <ion-thumbnail slot="start">
-              <img src="//via.placeholder.com/100" alt="deal">
+              <img [src]="deals[2].media[0].url" alt="deal">
             </ion-thumbnail>
             <ion-label text-wrap>
               <ion-text color="primary">
-                <h3>Deal Title</h3>
+                <h3>{{deals[2].title}}</h3>
               </ion-text>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
-                quibusdam unde dolore error deleniti.</p>
-              <small>At place</small>
+              <p>{{deals[2].description}}</p>
+              <small>By {{deals[2].corp.name}}</small>
             </ion-label>
           </ion-item>
-          <ion-item lines="inset" (click)="selectDeal()">
+          <ion-item lines="inset" (click)="selectDeal(deals[3])">
             <ion-thumbnail slot="start">
-              <img src="//via.placeholder.com/100" alt="deal">
+              <img [src]="deals[3].media[0].url" alt="deal">
             </ion-thumbnail>
             <ion-label text-wrap>
               <ion-text color="primary">
-                <h3>Deal Title</h3>
+                <h3>{{deals[3].title}}</h3>
               </ion-text>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, dicta minus ipsa dolorem culpa sed
-                quibusdam unde dolore error deleniti.</p>
-              <small>At place</small>
+              <p>{{deals[3].description}}</p>
+              <small>By {{deals[3].corp.name}}</small>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+      <ion-slide>
+        <ion-list class="deals-list">
+          <ion-item lines="inset" (click)="selectDeal(deals[4])">
+            <ion-thumbnail slot="start">
+              <img [src]="deals[4].media[0].url" alt="deal">
+            </ion-thumbnail>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h3>{{deals[4].title}}</h3>
+              </ion-text>
+              <p>{{deals[4].description}}</p>
+              <small>By {{deals[4].corp.name}}</small>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="inset" (click)="selectDeal(deals[5])">
+            <ion-thumbnail slot="start">
+              <img [src]="deals[5].media[0].url" alt="deal">
+            </ion-thumbnail>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h3>{{deals[5].title}}</h3>
+              </ion-text>
+              <p>{{deals[5].description}}</p>
+              <small>By {{deals[5].corp.name}}</small>
             </ion-label>
           </ion-item>
         </ion-list>

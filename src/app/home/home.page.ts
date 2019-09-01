@@ -26,6 +26,9 @@ export class HomePage implements OnInit {
   userTopics: string[] = [];
   videos: any[] = [];
   patients: any[] = [];
+  deals: any[] = [];
+
+  dealLoaded = false;
 
   darkMode: boolean;
   showPrivacyBanner = true;
@@ -105,9 +108,12 @@ export class HomePage implements OnInit {
   }
 
   loadData() {
-    this.videos = this.homeData.getRandomVideos(5);
-    this.patients = this.homeData.getRandomPatients(7);
-    console.log(this.patients);
+    this.videos = this.homeData.getRandomVideos(4);
+    this.patients = this.homeData.getRandomPatients(6);
+    this.deals = this.homeData.getRandomDeals(7);
+    setTimeout(() => {
+      this.dealLoaded = true;
+    }, 2000);
   }
 
   async initSearch() {
