@@ -434,31 +434,15 @@
   <section>
     <ion-label class="section__title" slot="start">
       Videos
-      <ion-text class="more-link" text-right (click)="gotoVideos()">View All</ion-text>
+      <ion-text class="more-link" text-right (click)="navigateTo('VID')">View All</ion-text>
     </ion-label>
     <ion-slides class="slides__dashboard eduvids" [options]="eduVidslideOpts">
-      <ion-slide tappable>
-        <div class="video-tile" (click)="playVideo()">
+      <ion-slide tappable *ngFor="let item of videos">
+        <div class="video-tile" (click)="playVideo(item)">
           <div class="cover" [class.show-play-btn]="1">
-            <img src="//via.placeholder.com/200x150" alt="...">
+            <img [src]="item.video.thumbnailUrl" alt="...">
           </div>
-          <span class="title">Lorem ipsum dolor sit amet consectetur.</span>
-        </div>
-      </ion-slide>
-      <ion-slide tappable>
-        <div class="video-tile" (click)="playVideo()">
-          <div class="cover" [class.show-play-btn]="1">
-            <img src="//via.placeholder.com/200x150" alt="...">
-          </div>
-          <span class="title">Lorem ipsum dolor sit amet consectetur.</span>
-        </div>
-      </ion-slide>
-      <ion-slide tappable>
-        <div class="video-tile" (click)="playVideo()">
-          <div class="cover" [class.show-play-btn]="1">
-            <img src="//via.placeholder.com/200x150" alt="...">
-          </div>
-          <span class="title">Lorem ipsum dolor sit amet consectetur.</span>
+          <span class="title">{{item.title}}</span>
         </div>
       </ion-slide>
     </ion-slides>

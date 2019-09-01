@@ -56,7 +56,7 @@ export class ReceivedListComponent implements OnInit {
 
   }
 
-  async prepareData(data: any) {
+  prepareData(data: any) {
     // console.log(data);
     const allData = data.map((item: any) => {
       const doctor = this.data.getUser(item.referredBy, 'Doctor');

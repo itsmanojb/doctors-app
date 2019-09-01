@@ -13,7 +13,7 @@
       "status": 2,
       "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       "thumbnailUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
-      "duration": 34190
+      "duration": 3190
     },
     "title": "Big Buck Bunny",
     "description": "Ut aute magna amet excepteur dolore aliqua minim sint. Fugiat non deserunt nisi laboris commodo sunt pariatur dolore. Aliqua velit cillum veniam irure. Reprehenderit duis occaecat quis excepteur quis dolor voluptate nisi dolore cillum. Sunt aute consequat dolor incididunt eiusmod sint exercitation laborum commodo elit ad. Eiusmod nisi veniam Lorem proident laboris excepteur consequat Lorem excepteur. Ut anim ipsum veniam eiusmod deserunt ea in magna id et consequat.\n\nExercitation ad est pariatur laborum est elit ea commodo. Tempor ullamco esse Lorem consectetur in eiusmod commodo ad laboris ea tempor. Qui minim commodo ad ea laboris dolor aliqua esse cillum labore laboris voluptate nostrud. Pariatur cillum laboris sunt aliqua ut nulla adipisicing ut exercitation occaecat officia. Amet tempor ipsum pariatur commodo est officia ut sint magna labore culpa sit.",
@@ -34,20 +34,20 @@
     },
     "comments": [{
         "id": 0,
-        "userId": 0,
-        "dtWhen": "",
+        "userId": 4,
+        "dtWhen": 1565045190000,
         "msg": "Lorem eu tempor do ut amet amet laborum nisi sunt adipisicing velit ut tempor velit. Proident quis duis cupidatat incididunt culpa duis veniam. Ea pariatur nulla ut irure adipisicing. Cillum minim officia tempor nostrud fugiat consectetur veniam."
       },
       {
         "id": 1,
         "userId": 1,
-        "dtWhen": "",
-        "msg": "Cupidatat proident irure labore anim quis culpa voluptate ex enim sit in proident adipisicing. Aliqua incididunt eu non pariatur reprehenderit. Eiusmod quis id tempor do sit veniam veniam eiusmod ex velit sint anim magna."
+        "dtWhen": 1558406813000,
+        "msg": "iqua incididunt eu non pariatur reprehenderit. Eiusmod quis id tempor do sit veniam veniam eiusmod ex velit sint anim magna."
       },
       {
         "id": 2,
         "userId": 2,
-        "dtWhen": "",
+        "dtWhen": 1565193470000,
         "msg": "Dolor tempor velit proident laboris aute irure pariatur eu ipsum pariatur non. Cupidatat esse proident culpa labore ullamco et minim veniam veniam sunt minim. Ut aliqua consectetur id irure sit non ullamco aute ex. Qui fugiat occaecat dolore consequat ut laborum sint laboris deserunt. Elit dolore aliquip do incididunt non aliqua."
       }
     ]
@@ -88,21 +88,21 @@
     },
     "comments": [{
         "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Adipisicing nisi eu et enim mollit sint non enim excepteur laborum ipsum culpa. Do reprehenderit irure aliquip incididunt esse. Irure sit culpa aute voluptate. Duis elit dolor ea enim. Enim velit irure sunt aliquip sunt ipsum."
+        "userId": 4,
+        "dtWhen": 1565045190000,
+        "msg": "Lorem eu tempor do ut amet amet laborum nisi sunt adipisicing velit ut tempor velit. Proident quis duis cupidatat incididunt culpa duis veniam. Ea pariatur nulla ut irure adipisicing. Cillum minim officia tempor nostrud fugiat consectetur veniam."
       },
       {
         "id": 1,
         "userId": 1,
-        "dtWhen": "",
-        "msg": "Voluptate dolore qui et enim nostrud sunt enim cillum incididunt. Ad irure anim occaecat tempor in consequat mollit tempor do minim. Commodo consectetur sit reprehenderit tempor veniam laboris ut eu Lorem. Incididunt labore nostrud cupidatat laboris ea consectetur proident sit minim esse duis. Id incididunt nisi consectetur commodo do id amet tempor laboris laborum laboris consequat minim. Incididunt ad nostrud do mollit deserunt."
+        "dtWhen": 1558406813000,
+        "msg": "iqua incididunt eu non pariatur reprehenderit. Eiusmod quis id tempor do sit veniam veniam eiusmod ex velit sint anim magna."
       },
       {
         "id": 2,
         "userId": 2,
-        "dtWhen": "",
-        "msg": "Consectetur nostrud sint minim irure laboris sit sunt minim. Consequat nulla aliquip excepteur amet ad dolor non consectetur dolore et incididunt non. Eu labore labore irure deserunt qui commodo incididunt et."
+        "dtWhen": 1565193470000,
+        "msg": "Dolor tempor velit proident laboris aute irure pariatur eu ipsum pariatur non. Cupidatat esse proident culpa labore ullamco et minim veniam veniam sunt minim. Ut aliqua consectetur id irure sit non ullamco aute ex. Qui fugiat occaecat dolore consequat ut laborum sint laboris deserunt. Elit dolore aliquip do incididunt non aliqua."
       }
     ]
   },
@@ -140,25 +140,7 @@
         "ad"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Laborum exercitation exercitation ut veniam fugiat in commodo sit adipisicing nulla aute. Reprehenderit tempor ad et cillum. Incididunt voluptate incididunt ipsum ullamco officia veniam sint voluptate culpa cupidatat enim elit ipsum duis."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Qui consequat quis excepteur labore quis non nisi. Culpa in velit eiusmod aute sunt cillum. Lorem proident eiusmod nulla sint cillum enim officia cillum. Proident non nulla et labore ad ea qui mollit nostrud in nisi cupidatat. Minim esse esse tempor ut cillum labore consectetur in ullamco Lorem et fugiat esse sint. Ullamco pariatur pariatur cillum do exercitation culpa ad consequat. Culpa amet ea veniam ullamco reprehenderit veniam enim."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "Aliqua deserunt deserunt amet tempor deserunt. Ullamco magna dolore dolor tempor amet Lorem quis eiusmod qui adipisicing adipisicing cillum velit. Minim ullamco id exercitation deserunt eiusmod elit. Est incididunt excepteur commodo laboris."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a2f311bace43c79682",
@@ -194,25 +176,7 @@
         "id"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Exercitation laboris quis veniam magna esse. Sit minim id aliquip exercitation incididunt Lorem. Magna cupidatat et dolore commodo esse dolor. Duis id officia excepteur incididunt sint sit proident pariatur nisi ut culpa enim. Consequat minim amet adipisicing mollit aute quis reprehenderit dolore officia ea eiusmod deserunt."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Proident incididunt laborum nostrud velit. Qui nostrud eiusmod qui anim laborum proident aliqua culpa quis sint do. Fugiat quis dolore Lorem nostrud labore est occaecat nisi commodo sint eiusmod commodo quis quis. Eu sit qui reprehenderit in qui fugiat incididunt Lorem pariatur nisi deserunt reprehenderit deserunt."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "Laboris nostrud anim consectetur ullamco ad voluptate sint. Cupidatat anim occaecat cillum laborum. Enim dolore nulla cupidatat proident non reprehenderit esse consectetur fugiat nulla ad et."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a28fb8c98bf005b9a2",
@@ -248,25 +212,7 @@
         "exercitation"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Non id nostrud fugiat reprehenderit do Lorem qui nulla consectetur eu eiusmod consequat nisi. Officia consequat velit ex eiusmod fugiat aute Lorem amet cillum proident ullamco mollit. Reprehenderit in esse veniam pariatur dolore nisi eu consectetur anim fugiat."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Qui occaecat ut veniam quis sunt minim dolore. Dolor incididunt eu aliqua dolore amet quis ex commodo minim nostrud dolore occaecat. Consequat laboris deserunt magna ea. Fugiat voluptate excepteur excepteur anim est veniam eiusmod nulla occaecat consectetur id voluptate excepteur sunt. In eu cillum ipsum ad occaecat dolor."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "Dolore consectetur sit qui consectetur pariatur nulla et aliquip excepteur amet exercitation. Irure nostrud consectetur nulla Lorem veniam quis est ad incididunt id dolore proident proident. Elit officia reprehenderit commodo id ea excepteur aliqua est anim labore. Sint do mollit amet ex fugiat esse fugiat reprehenderit culpa dolore ut veniam anim. Fugiat sit eu incididunt culpa. Minim proident voluptate irure magna nostrud dolore officia deserunt ullamco."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a288418f20cf399595",
@@ -302,25 +248,7 @@
         "do"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Sunt reprehenderit eu excepteur ad anim veniam. Ut et in excepteur excepteur adipisicing exercitation sit. Occaecat ea aute anim ut nisi mollit proident quis adipisicing velit fugiat consequat nostrud. Ea dolor ipsum ex Lorem reprehenderit."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Eiusmod voluptate ex consequat minim aute ut eu eu. In minim cupidatat labore aute amet duis reprehenderit proident irure consequat voluptate esse. Ad proident veniam veniam ad proident quis enim adipisicing deserunt sunt velit anim elit. Non sunt irure officia esse occaecat elit nostrud. Ad eu qui commodo laborum ad tempor."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "Veniam ullamco et nostrud dolore ea aliquip ut nostrud. In in ex enim in consequat fugiat incididunt laboris anim quis consectetur cillum exercitation nostrud. Quis adipisicing magna eiusmod non reprehenderit anim est excepteur adipisicing sunt. Exercitation Lorem voluptate tempor aliquip id do eu magna ex anim incididunt dolore ad do. Pariatur amet do eiusmod ipsum culpa eiusmod ex adipisicing deserunt Lorem in incididunt."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a2c9621acdb71f4305",
@@ -356,25 +284,7 @@
         "ut"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Occaecat et commodo deserunt consectetur amet proident tempor. Lorem consectetur ad eiusmod aute adipisicing elit ipsum. Voluptate ullamco amet voluptate tempor. Proident deserunt nulla id occaecat commodo labore proident dolor laborum cillum exercitation aute."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Ex amet minim aute irure ex fugiat consectetur adipisicing proident cillum. Labore officia ad do mollit ullamco. Velit veniam dolore sit incididunt ex quis amet consectetur deserunt Lorem. Adipisicing ut est nisi non consectetur adipisicing."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "Cillum incididunt dolore do proident laboris. Qui do magna tempor commodo Lorem eiusmod sunt ad dolore commodo adipisicing reprehenderit cupidatat tempor. Lorem non fugiat sit non culpa velit nostrud cupidatat consectetur sint. Nulla est do pariatur consectetur esse elit ea cillum. Cillum qui exercitation qui mollit duis duis ad deserunt cupidatat tempor voluptate nisi ea veniam. Pariatur voluptate velit Lorem exercitation fugiat consectetur exercitation velit ipsum."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a236e93c3d1251ee0e",
@@ -410,25 +320,7 @@
         "aute"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Excepteur id sint quis laboris mollit voluptate proident. Enim est quis qui amet commodo est est veniam in commodo dolore pariatur ea mollit. Anim ad eu nostrud nostrud ex deserunt do cupidatat esse consectetur amet. Et ut aliquip et cillum magna in nostrud cillum eu et dolor qui occaecat ea. Elit veniam id adipisicing nisi non. Nulla ea consectetur deserunt elit fugiat non ad enim culpa sint id consectetur."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Proident eiusmod labore exercitation ex commodo veniam deserunt deserunt. Veniam ut nulla eu excepteur ad adipisicing eiusmod. Tempor reprehenderit commodo excepteur quis consectetur id id minim quis tempor. Velit ad aliqua ea fugiat."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "Adipisicing cupidatat aliquip aliqua est. Amet ea minim sit pariatur esse et sunt enim est proident ad. Fugiat irure ea mollit cupidatat ut dolore in nostrud consectetur qui ipsum id. Id quis do exercitation quis deserunt exercitation."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a25fbd1d49c917439d",
@@ -464,25 +356,7 @@
         "est"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Ipsum ullamco reprehenderit id laboris aliquip elit laboris. Laboris exercitation qui sint nulla dolore velit occaecat nisi nisi. Ex culpa pariatur do voluptate adipisicing mollit exercitation culpa amet aliquip. Quis in ullamco ea laborum amet. Aliqua quis nostrud nostrud dolor. Ea reprehenderit commodo aute esse. Do aliquip commodo cillum Lorem deserunt non dolor aliquip."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Eu mollit reprehenderit pariatur nostrud fugiat et ullamco officia sint quis ex est cupidatat. Minim id ex aliquip amet incididunt. Sunt nulla eiusmod voluptate excepteur."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "In tempor dolor nulla ea duis consequat commodo excepteur anim aliqua commodo quis. Mollit ut ad mollit in occaecat ad tempor officia eiusmod minim laboris. Sit in occaecat sit labore dolore officia laboris sint consectetur. Sit commodo culpa in deserunt eu nulla sunt exercitation reprehenderit sit tempor laboris."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a21568a6c1228e3ec2",
@@ -518,25 +392,7 @@
         "qui"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Nostrud ullamco consectetur anim aliqua ut reprehenderit. Nulla cillum ea tempor proident sint veniam cillum nulla ex non ut sunt. Dolor ea labore ullamco elit."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Sunt duis incididunt magna reprehenderit eiusmod ipsum eu consectetur aute pariatur esse. Ad exercitation nisi qui irure fugiat ipsum velit ipsum laboris. Velit in occaecat magna duis nostrud minim non cillum. Ut est enim dolore deserunt et ex mollit. Proident do dolore amet duis pariatur enim eiusmod mollit cupidatat. Excepteur dolor nisi aliqua dolor non ex veniam consequat officia nostrud ullamco consequat adipisicing."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "Ut aute esse nisi fugiat exercitation officia incididunt deserunt dolore et consectetur ullamco exercitation. Labore nisi aute aliqua reprehenderit proident reprehenderit tempor reprehenderit cupidatat et eiusmod. Voluptate incididunt dolore cupidatat dolor irure sint duis culpa proident excepteur in aliquip. Sunt laborum non reprehenderit irure deserunt enim elit nulla aliquip ad quis voluptate."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a292a0f1807b35805f",
@@ -572,25 +428,7 @@
         "Lorem"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Eu labore non deserunt mollit. Officia laboris sit elit in ex. Sit est mollit enim magna. Reprehenderit anim deserunt do reprehenderit duis quis elit nostrud commodo mollit exercitation. Ex laborum velit proident nostrud eiusmod veniam ullamco quis occaecat in. Irure laboris mollit aute tempor et velit sit."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Exercitation ullamco tempor proident sit minim excepteur reprehenderit do ullamco voluptate culpa id. Elit tempor exercitation adipisicing exercitation proident non eiusmod tempor commodo esse quis officia fugiat pariatur. Anim pariatur Lorem proident anim anim. Deserunt culpa eu pariatur et mollit ipsum eiusmod fugiat."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "Commodo mollit et dolore elit in. Ut ex enim irure qui pariatur ipsum magna enim esse. Et aliqua dolor pariatur non et minim cupidatat labore. Tempor irure ullamco laborum sint duis nulla. Fugiat laboris aute dolor Lorem. Esse elit nostrud non culpa sunt nulla do commodo. Laboris duis consectetur qui qui ut eiusmod."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a2b81b77ca594fe9e3",
@@ -626,25 +464,7 @@
         "ipsum"
       ]
     },
-    "comments": [{
-        "id": 0,
-        "userId": 0,
-        "dtWhen": "",
-        "msg": "Ut dolore dolore deserunt fugiat occaecat do amet id culpa. Ut aute ipsum dolore excepteur culpa magna. Ad quis eu do deserunt ex eu officia cillum cupidatat aliquip pariatur elit."
-      },
-      {
-        "id": 1,
-        "userId": 1,
-        "dtWhen": "",
-        "msg": "Elit aliquip commodo fugiat commodo incididunt pariatur. Tempor nisi qui eiusmod ea exercitation irure et velit id fugiat est proident eu qui. Veniam culpa in voluptate reprehenderit duis nostrud ex duis dolore aliqua exercitation nostrud. Ut eiusmod quis esse anim quis sint commodo nisi aliqua exercitation fugiat ea in. Aliqua velit est ut nulla. Ipsum magna dolore veniam tempor cillum consectetur duis. Amet incididunt ex ullamco excepteur sunt pariatur proident exercitation ut incididunt."
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "dtWhen": "",
-        "msg": "Sit veniam cupidatat culpa cillum anim ea aliquip non. Aliqua fugiat laborum elit et exercitation nisi adipisicing labore velit officia. Magna sit labore enim dolor deserunt occaecat sint et officia. Reprehenderit mollit laborum est duis incididunt occaecat esse do Lorem aute et veniam fugiat. Eu eiusmod elit dolore velit dolor cupidatat id proident pariatur ad exercitation. Commodo culpa exercitation consequat ullamco cupidatat exercitation tempor ut. Eiusmod ad consectetur esse non in deserunt officia."
-      }
-    ]
+    "comments": []
   },
   {
     "_id": "5d6a28a2b48f0f45e0038b5b",
@@ -682,20 +502,20 @@
     },
     "comments": [{
         "id": 0,
-        "userId": 0,
-        "dtWhen": "",
+        "userId": 6,
+        "dtWhen": 1547936305000,
         "msg": "Irure qui laborum ullamco ut qui sint tempor elit dolor dolor veniam id. Ex quis aliquip velit deserunt ea quis proident fugiat culpa commodo. Quis aliquip amet irure aliqua nulla incididunt consectetur est sit esse id veniam consequat in. Ad velit esse labore deserunt ipsum aute ad deserunt ullamco officia aliqua. Nulla mollit dolore adipisicing sint aliqua sunt officia commodo ullamco veniam. Veniam ipsum ullamco ipsum consequat."
       },
       {
         "id": 1,
-        "userId": 1,
-        "dtWhen": "",
+        "userId": 2,
+        "dtWhen": 1547936333000,
         "msg": "Proident irure ad ea incididunt magna adipisicing quis aliqua veniam sit reprehenderit nostrud. Ullamco irure cupidatat esse nostrud. Velit laboris nostrud labore sint do nulla deserunt consequat labore Lorem adipisicing quis. Aute occaecat sint anim velit cillum fugiat excepteur aute velit. Laborum sunt pariatur deserunt nisi est ipsum. Cupidatat velit duis minim qui elit nulla deserunt et ullamco nisi irure. Id et consectetur officia ullamco sit minim proident do aute aliquip."
       },
       {
         "id": 2,
-        "userId": 2,
-        "dtWhen": "",
+        "userId": 1,
+        "dtWhen": 1547636305000,
         "msg": "Magna ipsum do veniam est mollit veniam excepteur labore cillum ad exercitation. Nulla laborum cillum aliqua labore sit reprehenderit dolore. Proident sit magna dolore reprehenderit ad irure consectetur reprehenderit sit officia fugiat nostrud sint consectetur. Et labore est nulla aliqua aliquip commodo non ut id incididunt quis nulla aliquip quis. Ullamco in occaecat non do voluptate proident consequat culpa enim ad. Enim elit laborum Lorem ut exercitation culpa deserunt. Veniam duis duis do proident esse ea."
       }
     ]

@@ -4,6 +4,7 @@ import { FooterTabsComponent } from './footer-tabs/footer-tabs.component';
 import { TopicsComponent } from './topics/topics.component';
 import { ContactPickerComponent } from './contact-picker/contact-picker.component';
 import { SkeletonComponent } from './skeleton/skeleton.component';
+import { VideoDetailsComponent } from '../videos/video-details/video-details.component';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
     FooterTabsComponent,
     TopicsComponent,
     SkeletonComponent,
+    VideoDetailsComponent,
   ],
   imports: [
     CommonModule
@@ -23,10 +25,12 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
     FooterTabsComponent,
     TopicsComponent,
     SkeletonComponent,
+    VideoDetailsComponent,
   ],
   entryComponents: [
     ContactPickerComponent,
-    TopicsComponent
+    TopicsComponent,
+    VideoDetailsComponent,
   ]
 })
 export class ComponentsModule { }

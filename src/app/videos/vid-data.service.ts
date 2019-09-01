@@ -7,8 +7,8 @@ import Videos from '../../assets/dummy/videos.json';
 })
 export class VidDataService {
 
-  private readonly videos: [] = Videos;
-  sortedVideos: [];
+  private readonly videos: any[] = Videos;
+  sortedVideos: any[] = [];
 
   constructor(private data: DataService) {
     this.sortedVideos = this.videos.sort(this.compare);
@@ -17,6 +17,11 @@ export class VidDataService {
   getVideos(pageNumber: number, perPage = 5) {
     const paginatedData = this.data.paginate(this.sortedVideos, pageNumber, perPage);
     return paginatedData.data;
+  }
+
+  getRandomVideos(n = 3) {
+    let random = this.videos.sort(() => .5 - Math.random()).slice(0, n);
+    return random;
   }
 
   compare(a, b) {

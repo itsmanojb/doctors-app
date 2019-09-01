@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ModalController, NavController, ToastController } from '@ionic/angular';
+import { Router, NavigationStart, Event } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { Subject } from 'rxjs';
-
-// import { patmdEndpoint } from '../endpoints';
-// import { VideoDetailsComponent } from '../videos/video-details/video-details.component';
 // import { InfoModalComponent } from '../_components/info-modal/info-modal.component';
 import { SearchComponent } from '../_components/search/search.component';
 import { TopicsComponent } from '../_components/topics/topics.component';
-// import { CuserUI } from '../_interfaces/user';
-// import { DataService } from '../_services/data.service';
+import { VideoDetailsComponent } from '../videos/video-details/video-details.component';
+
 import { InteractionService } from '../_services/interaction.service';
-import { Router, NavigationStart, Event } from '@angular/router';
+import { VidDataService } from '../videos/vid-data.service';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +24,7 @@ export class HomePage implements OnInit {
 
   allTopics: any[] = [];
   userTopics: string[] = [];
+  videos: any[] = [];
 
   darkMode: boolean;
   showPrivacyBanner = true;
@@ -85,6 +84,7 @@ export class HomePage implements OnInit {
     private store: Storage,
     private nav: NavController,
     private router: Router,
+    private vData: VidDataService,
   ) { }
 
   ngOnInit() {
@@ -103,7 +103,14 @@ export class HomePage implements OnInit {
     this.loadData();
   }
 
-  loadData() {}
+  loadData() {
+    this.getTopVideos();
+  }
+
+  getTopVideos() {
+    this.videos = this.vData.getRandomVideos(5);
+    // console.log(this.videos)
+  }
 
   async initSearch() {
     const modal = await this.modal.create({
@@ -158,15 +165,15 @@ export class HomePage implements OnInit {
   }
 
 
-  // async playVideo(video) {
-  //   const modal = await this.modal.create({
-  //     component: VideoDetailsComponent,
-  //     componentProps: {
-  //       video
-  //     },
-  //   });
-  //   return await modal.present();
-  // }
+  async playVideo(video) {
+    const modal = await this.modal.create({
+      component: VideoDetailsComponent,
+      componentProps: {
+        video
+      },
+    });
+    return await modal.present();
+  }
 
   async presentToast(msg) {
     const toast = await this.toast.create({

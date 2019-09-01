@@ -22,6 +22,48 @@ ion-toolbar {
       font-size: 15px;
       line-height: 19px;
       color: var(--text-color);
+
+      &.tags {
+        margin-bottom: 5px;
+
+        span {
+          color: var(--ion-color-primary);
+          margin-right: 6px;
+          font-weight: 500;
+          display: inline-block;
+          letter-spacing: -1px;
+
+          &:before {
+            content: '#';
+          }
+        }
+      }
+
+      &.short {
+        max-height: 140px;
+        overflow: hidden;
+        position: relative;
+
+        button {
+          border: none;
+          background-color: var(--background);
+          width: 100%;
+          text-align: center;
+          cursor: pointer;
+          position: absolute;
+          top: 114px;
+          left: 0;
+          padding: 6px 0;
+          font-size: 13px;
+          color: var(--ion-color-primary)
+        }
+      }
+
+      &:not(.short) {
+        button {
+          display: none
+        }
+      }
     }
   }
 }
@@ -118,6 +160,9 @@ ion-item {
 
   .avatar {
     height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 40px;
   }
 
   &.busy {
@@ -186,7 +231,12 @@ ion-item {
 }
 
 .v-comment {
-  font-size: 15px
+  font-size: 15px;
+  margin-top: 0;
+
+  textarea {
+    padding-top: 0;
+  }
 }
 
 .sbtn {
@@ -207,6 +257,9 @@ ion-item {
 
   .avatar {
     height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 40px;
   }
 
   .c-body {
