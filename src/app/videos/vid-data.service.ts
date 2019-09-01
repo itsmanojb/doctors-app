@@ -19,11 +19,6 @@ export class VidDataService {
     return paginatedData.data;
   }
 
-  getRandomVideos(n = 3) {
-    let random = this.videos.sort(() => .5 - Math.random()).slice(0, n);
-    return random;
-  }
-
   compare(a, b) {
     // if (a.dtCreated < b.dtCreated) {
     //   return -1;

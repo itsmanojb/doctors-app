@@ -10,7 +10,7 @@ import { TopicsComponent } from '../_components/topics/topics.component';
 import { VideoDetailsComponent } from '../videos/video-details/video-details.component';
 
 import { InteractionService } from '../_services/interaction.service';
-import { VidDataService } from '../videos/vid-data.service';
+import { HomeDataService } from './home-data.service';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +25,7 @@ export class HomePage implements OnInit {
   allTopics: any[] = [];
   userTopics: string[] = [];
   videos: any[] = [];
+  patients: any[] = [];
 
   darkMode: boolean;
   showPrivacyBanner = true;
@@ -84,7 +85,7 @@ export class HomePage implements OnInit {
     private store: Storage,
     private nav: NavController,
     private router: Router,
-    private vData: VidDataService,
+    private homeData: HomeDataService,
   ) { }
 
   ngOnInit() {
@@ -104,12 +105,9 @@ export class HomePage implements OnInit {
   }
 
   loadData() {
-    this.getTopVideos();
-  }
-
-  getTopVideos() {
-    this.videos = this.vData.getRandomVideos(5);
-    // console.log(this.videos)
+    this.videos = this.homeData.getRandomVideos(5);
+    this.patients = this.homeData.getRandomPatients(7);
+    console.log(this.patients);
   }
 
   async initSearch() {
